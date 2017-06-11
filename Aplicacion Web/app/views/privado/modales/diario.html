@@ -1,0 +1,192 @@
+<!-- Start About Us Section -->
+<div class="section-modal modal fade" id="diario-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+
+        <div class="container" ng-controller="diarioCtrl">
+            <div class="row">
+                <div class="section-title text-center">
+                    <h3>Mi diario de síntomas y sensaciones</h3>
+                    <p>lalala</p>
+                </div>
+            </div>
+
+                <div class="row">
+
+                    <div class="panel-diario col-md-4 col-sm-5">
+                        <div class="panel-izquierdo-diario">
+                            <div class="lista-sintomas">
+                                <h4>Síntomas</h4>
+                                <hr align="left">
+                                <h5>Jueves, 11 de mayo de 2017</h5>
+                                <ul class="noteList">
+                                    <li>Síntoma 1<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                    <li>Síntoma 2<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                    <li>Síntoma 3<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                </ul>
+                                <h5>Martes, 9 de mayo de 2017</h5>
+                                <ul class="noteList">
+                                    <li>Síntoma 1<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                    <li>Síntoma 2<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                    <li>Síntoma 3<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                </ul>
+                                <a href="#" title="Añadir síntoma" class="addNote animate">Añadir síntoma</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="panel-diario col-md-8 col-sm-7">
+                        <div class="panel-derecho-diario">
+                            <div class="contenedor-sintoma">
+                                <h4>Dolor de cabeza</h4>
+                                <hr align="left">
+
+                                <div class="contenido-sintoma" id="detalle-sintoma">
+                                </div>
+
+                                <div class="contenido-sintoma" id="nuevo-sintoma">
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form name="sentMessage" id="contactForm" class="formulario-basico" novalidate>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Nombre *" id="name" required data-validation-required-message="Por favor, introduce tu nombre.">
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="email" class="form-control" placeholder="Email *" id="email" required data-validation-required-message="Por favor, introduce tu dirección de correo electrónico.">
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="tel" class="form-control" placeholder="Teléfono *" id="phone" required data-validation-required-message="Por favor, introduce tu número de teléfono.">
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" placeholder="Mensaje *" id="message" required data-validation-required-message="Por favor, introduce un mensaje."></textarea>
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-lg-12 text-center">
+                                                        <div id="success"></div>
+                                                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+            <!--
+            <div class="row">
+
+                <div class="panel-diario col-md-4 col-sm-5">
+                    <div class="panel-izquierdo-diario">
+                        <div class="lista-sintomas">
+                            <h4>Síntomas</h4>
+                            <hr align="left">
+                            <h5>Jueves, 11 de mayo de 2017</h5>
+                            <ul class="noteList">
+                                <li>Síntoma 1<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                <li>Síntoma 2<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                <li>Síntoma 3<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                            </ul>
+                            <h5>Martes, 9 de mayo de 2017</h5>
+                            <ul class="noteList">
+                                <li>Síntoma 1<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                <li>Síntoma 2<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                <li>Síntoma 3<a href="#" title="Eliminar síntoma" class="icono-sintoma"><i class="fa fa-times" aria-hidden="true"></i></a><a href="#" title="Editar síntoma" class="icono-sintoma"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                            </ul>
+                            <a href="#" title="Añadir síntoma" class="addNote animate">Añadir síntoma</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel-diario col-md-8 col-sm-7">
+                    <div class="panel-derecho-diario">
+                        <div class="contenedor-sintoma">
+                            <h4>Dolor de cabeza</h4>
+                            <hr align="left">
+
+                            <div class="contenido-sintoma" id="detalle-sintoma">
+                            </div>
+
+                            <div class="contenido-sintoma" id="nuevo-sintoma">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form name="sentMessage" id="contactForm" class="formulario-basico" novalidate>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Nombre *" id="name" required data-validation-required-message="Por favor, introduce tu nombre.">
+                                                        <p class="help-block text-danger"></p>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" placeholder="Email *" id="email" required data-validation-required-message="Por favor, introduce tu dirección de correo electrónico.">
+                                                        <p class="help-block text-danger"></p>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="tel" class="form-control" placeholder="Teléfono *" id="phone" required data-validation-required-message="Por favor, introduce tu número de teléfono.">
+                                                        <p class="help-block text-danger"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" placeholder="Mensaje *" id="message" required data-validation-required-message="Por favor, introduce un mensaje."></textarea>
+                                                        <p class="help-block text-danger"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="col-lg-12 text-center">
+                                                    <div id="success"></div>
+                                                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+-->
+
+
+
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- End About Us Section -->

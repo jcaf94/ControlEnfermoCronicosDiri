@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="es" ng-app="chronicall">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Control de Enfermos Crónicos">
+  <meta name="author" content="Brandon Méndez Martínez, José Carlos Azorín Ferri, Olga Kovrova">
+
+  <title>ChroniCall - Control de Enfermos Crónicos</title>
+
+  <!-- CSS Bootstrap -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS jQueryUI -->
+  <link rel="stylesheet" href="vendor/jquery/css/jquery-ui.css">
+  <!-- CSS Font Awesome -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- CSS Principal -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- CSS Menu -->
+  <link href="css/menu.css" rel="stylesheet">
+  <!-- CSS Animate -->
+  <link href="css/animate.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+
+
+  <!-- Página -->
+  <div ui-view></div>
+
+
+
+  <!-- jQuery -->
+  <script src="vendor/jquery/js/jquery-3.1.1.min.js"></script>
+  <script src="vendor/jquery/js/jquery-ui.min.js"></script>
+  <script src="vendor/jquery/js/jquery.appear.js"></script>
+
+  <!-- JavaScript Bootstrap -->
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Angular  -->
+  <script src="vendor/angular/angular.js"></script>
+  <!--<script src="vendor/angular/angular-route.js"></script>-->
+  <script src="vendor/angular/angular-ui-router.js"></script>
+
+  <!-- Archivos adicionales Angular -->
+  <script src="app/app.js"></script>
+  <!--<script src="app/services/adaptaService.js"></script>-->
+  <!--<script src="app/directives/vacioDirective.js"></script>-->
+  <!--<script src="app/directives/usuarioDirective.js"></script>-->
+  <!--<script src="app/directives/passwordDirective.js"></script>-->
+  <script src="app/controllers/chronicallCtrl.js"></script>
+  <script src="app/controllers/menuCtrl.js"></script>
+  <!--
+  <script src="app/controllers/inicioCtrl.js"></script>
+  <script src="app/controllers/opcionesCtrl.js"></script>
+  <script src="app/controllers/recursosCtrl.js"></script>
+  <script src="app/controllers/configuracionCtrl.js"></script>
+  <script src="app/controllers/informacionCtrl.js"></script>
+  -->
+  <script src="app/routes/routes.js"></script>
+
+
+
+  <script src="vendor/custom/contact.js"></script>
+  <script src="vendor/custom/jqBootstrapValidation.js"></script>
+  <script src="vendor/custom/modernizr.custom.js"></script>
+  <script src="vendor/custom/script.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</body>
+
+</html>

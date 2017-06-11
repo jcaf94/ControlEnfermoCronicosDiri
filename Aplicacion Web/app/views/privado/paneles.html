@@ -1,0 +1,86 @@
+<!-- Start Main Body Section -->
+<div class="paneles text-center" ng-controller="panelesCtrl">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="menu-item green">
+                    <a ng-click="modalCentros()" data-toggle="modal" class="enlace-normal">
+                        <i class="fa fa-hospital-o"></i>
+                        <p>Mis centros médicos</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="menu-item green">
+                    <a ng-click="modalMedicos()" data-toggle="modal" class="enlace-normal">
+                        <i class="fa fa-user-md"></i>
+                        <p>Mis médicos</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="menu-item green">
+                    <a ng-click="modalFamiliares()" data-toggle="modal" class="enlace-normal">
+                        <i class="fa fa-users"></i>
+                        <p>Mis familiares</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="menu-item green">
+                    <a ng-click="modalDiario()" data-toggle="modal" class="enlace-normal">
+                        <i class="fa fa-book"></i>
+                        <p>Mi diario de síntomas</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="menu-item green">
+                    <a ng-click="modalCitas()" data-toggle="modal" class="enlace-normal">
+                        <i class="fa fa-calendar"></i>
+                        <p>Mis citas</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="menu-item green">
+                    <a ng-click="modalHistorial()" data-toggle="modal" class="enlace-normal">
+                        <i class="fa fa-file-text-o"></i>
+                        <p>Mi historial médico</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+  <!-- Modal - Testimonial -->
+  <div ng-include="'app/views/privado/modales/testimonial.html'"></div>
+
+  <!-- Modal - Mis centros médicos -->
+  <div ng-include="'app/views/privado/modales/centros.html'"></div>
+
+  <!-- Modal - Mis médicos -->
+  <div ng-include="'app/views/privado/modales/medicos.html'"></div>
+
+  <!-- Modal - Mis familiares -->
+  <div ng-include="'app/views/privado/modales/familiares.html'"></div>
+
+  <!-- Modal - Diario de síntomas -->
+  <div ng-include="'app/views/privado/modales/diario.html'"></div>
+
+  <!-- Modal - Citas -->
+  <div ng-include="'app/views/privado/modales/citas.html'"></div>
+
+  <!-- Modal - Historial médico -->
+  <div ng-include="'app/views/privado/modales/historial.html'"></div>

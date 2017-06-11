@@ -1,0 +1,108 @@
+<ion-modal-view view-title="Registro" class="fondo-principal" hide-nav-bar="true">
+
+  <ion-content padding="true" scroll="true">
+
+    <div class="row responsive-sm">
+      <div class="col">
+
+        <!-- Cabecera -->
+        <div ng-include="'templates/cabecera-autenticacion.html'"></div>
+
+        <!--<div class="app-logo"><img src="img/logo.png"></div>-->
+
+        <form ng-submit="doRegistro()" class="formulario-autenticacion">
+
+
+          <!-- DATOS PERSONALES -->
+          <div class="list">
+            <div class="item contenedor_toggle">
+              <h3 ng-click="toggle1_registro = !toggle1_registro">Datos personales</h3>
+              <div ng-show="toggle1_registro">
+                <!-- Campo NOMBRE -->
+                <label class="item item-input">
+              <input type="text" ng-model="registroData.nombre" placeholder="Nombre" >
+            </label>
+                <!-- Campo APELLIDOS -->
+                <label class="item item-input">
+              <input type="text" ng-model="registroData.apellidos" placeholder="Apellidos" >
+            </label>
+                <!-- Campo NIF -->
+                <label class="item item-input">
+              <input type="text" ng-model="registroData.nif" placeholder="NIF" >
+            </label>
+                <!-- Campo CONTRASEÑA -->
+                <label class="item item-input">
+              <input type="password" ng-model="registroData.password" placeholder="Contraseña" >
+            </label>
+                <!-- Campo REPETIR CONTRASEÑA -->
+                <label class="item item-input">
+              <input type="password" ng-model="registroData.password2" placeholder="Repetir contraseña" >
+            </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- DATOS DE CONTACTO -->
+          <div class="list">
+            <div class="item contenedor_toggle">
+              <h3 ng-click="toggle2_registro = !toggle2_registro">Datos de contacto</h3>
+              <div ng-show="toggle2_registro">
+                <!-- Campo DIRECCION -->
+                <label class="item item-input">
+              <input type="text" ng-model="registroData.direccion" placeholder="Dirección" >
+            </label>
+                <!-- Campo TELEFONO -->
+                <label class="item item-input">
+              <input type="number" ng-model="registroData.telefono" placeholder="Teléfono" >
+            </label>
+                <!-- Campo EMAIL -->
+                <label class="item item-input">
+              <input type="email" ng-model="registroData.email" placeholder="Email" >
+            </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- INFORMACIÓN ADICIONAL -->
+          <div class="list">
+            <div class="item contenedor_toggle">
+              <h3 ng-click="toggle3_registro = !toggle3_registro">Información adicional</h3>
+              <div ng-show="toggle3_registro">
+            <!-- Campo FECHA DE NACIMIENTO -->
+            <label class="item item-input">
+              <input type="date" ng-model="registroData.nacimiento" placeholder="Fecha de nacimiento" >
+            </label>
+            <!-- Campo SEXO -->
+            <label class="item item-input">
+              <input type="text" ng-model="registroData.sexo" placeholder="Sexo" >
+            </label>
+            <!-- Campo ESTADO CIVIL -->
+            <label class="item item-input">
+              <input type="text" ng-model="registroData.civil" placeholder="Estado civil" >
+            </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROL -->
+          <div class="list">
+            <div class="item contenedor_toggle">
+              <h3 ng-click="toggle4_registro = !toggle4_registro">Rol</h3>
+              <div ng-show="toggle4_registro">
+              </div>
+            </div>
+          </div>
+
+          <!-- Boton ENTRAR -->
+          <div class="contenedor-botones-autenticacion">
+            <button type="submit" class="button button-full boton-inicial"><i class="icon ion-compose"></i>REGISTRARME</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-modal-view>

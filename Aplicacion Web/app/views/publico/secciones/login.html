@@ -1,0 +1,60 @@
+<!-- Sección - Login -->
+
+<div class="seccion seccion-login" ng-controller="seccionCtrl">
+
+    <div class="container" ng-controller="loginCtrl">
+
+        <div class="row">
+            <h2>LOGIN</h2>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8 col-xs-12">
+
+                <form id="login" name="login" ng-submit="loguear()" class="formulario-basico formulario-autenticacion formulario-login" ng-class="{true: 'shake', false: ' '}[error]" novalidate>
+
+                    <!-- Campo NIF -->
+                    <div class="form-group form-group-lg" ng-class="{'has-error': (login.nif_login.$error.vacioDirective && login.nif_login.$dirty) || login.nif_login.$error.usuarioDirective}">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></div>
+                            <input id="nif_login" name="nif_login" type="text" placeholder="NIF *" class="form-control input-lg" ng-model="nif_login" ng-value="nif" ng-minlength="9" ng-maxlength="9" required vacio-directive usuario-directive />
+                        </div>
+                        <span class="texto-error" ng-show="login.nif_login.$error.vacioDirective && login.nif_login.$dirty">El NIF no puede estar vacío.</span>
+                        <span class="texto-error" ng-show="login.nif_login.$error.usuarioDirective">El NIF debe contener carácteres alfanuméricos.</span>
+                        <span class="texto-error" ng-show="login.nif_login.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El NIF debe contener 9 carácteres.</span>
+                        <span class="texto-error" ng-show="login.nif_login.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El NIF debe contener 9 carácteres.</span>
+                    </div>
+
+
+                    <!-- Campo CONTRASEÑA -->
+                    <div class="form-group form-group-lg" ng-class="{'has-error': (login.password_login.$error.vacioDirective && login.password_login.$dirty)}">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></div>
+                            <input id="password_login" name="password_login" type="password" placeholder="Contraseña *" class="form-control input-lg" ng-model="password_login" ng-value="password" ng-minlength="4" ng-maxlength="15" required vacio-directive />
+                        </div>
+                        <span class="texto-error" ng-show="login.password_login.$error.vacioDirective && login.password_login.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña no puede estar vacía.</span>
+                        <span class="texto-error" ng-show="login.password_login.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña debe contener más de 3 carácteres.</span>
+                        <span class="texto-error" ng-show="login.password_login.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña debe contener menos de 16 carácteres.</span>
+                    </div>
+
+                    <span ng-show="error" class="texto-error">No existe ningún usuario con estos datos.</span>
+
+                    <!-- Boton ENTRAR -->
+                    <div class="form-group form-group-lg">
+                        <button type="submit" id="btn_login" class="btn btn-primary btn-lg btn-block">ENTRAR <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i></button>
+                        <!-- ng-disabled="!login.$valid" -->
+                    </div>
+
+
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <br><br><a ui-sref="chronicall.publico.inicio" ng-click="cabeceraInicio()" class="volver-menu">VOLVER</a>
+
+</div>

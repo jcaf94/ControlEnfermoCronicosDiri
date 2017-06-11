@@ -1,0 +1,321 @@
+<!-- Sección - Registro -->
+
+<div class="seccion seccion-registro" ng-controller="seccionCtrl">
+
+
+
+    <div class="container" ng-controller="registroCtrl">
+
+        <div class="row">
+            <h2>REGISTRO</h2>
+        </div>
+
+        <div class="row">
+            <div class="stepwizard">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step col-xs-3">
+                        <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                        <p><small>Datos personales</small></p>
+                    </div>
+                    <div class="stepwizard-step col-xs-3">
+                        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                        <p><small>Datos de contacto</small></p>
+                    </div>
+                    <div class="stepwizard-step col-xs-3">
+                        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                        <p><small>Información adicional</small></p>
+                    </div>
+                    <div class="stepwizard-step col-xs-3">
+                        <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                        <p><small>Rol</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
+
+                <form id="registro" name="registro" ng-submit="registrar()" class="formulario-basico formulario-autenticacion formulario-registro" ng-class="{true: 'shake', false: ' '}[error]" novalidate>
+
+                    <!-- PRIMER PASO - Datos personales -->
+                    <div class="setup-content" id="step-1">
+                        <!-- Campo Nombre -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.nombre_registro.$error.vacioDirective && registro.nombre_registro.$dirty) || registro.nombre_registro.$error.usuarioDirective || registro.nombre_registro.$error.minlength || registro.nombre_registro.$error.maxlength}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></div>
+                                <input id="nombre_registro" name="nombre_registro" type="text" placeholder="Nombre *" class="form-control input-lg" ng-model="nombre_registro" ng-value="nombre" ng-minlength="3" ng-maxlength="29" required vacio-directive usuario-directive />
+                            </div>
+                            <span class="texto-error" ng-show="registro.nombre_registro.$error.vacioDirective && registro.nombre_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El nombre no puede estar vacío.</span>
+                            <span class="texto-error" ng-show="registro.nombre_registro.$error.usuarioDirective"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El nombre debe contener únicamente carácteres alfabéticos.</span>
+                            <span class="texto-error" ng-show="registro.nombre_registro.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El nombre debe contener más de 2 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.nombre_registro.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El nombre debe contener menos de 30 carácteres.</span>
+                        </div>
+
+                        <!-- Campo Apellidos -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.apellidos_registro.$error.vacioDirective && registro.apellidos_registro.$dirty) || registro.apellidos_registro.$error.usuarioDirective || registro.apellidos_registro.$error.minlength || registro.apellidos_registro.$error.maxlength}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></div>
+                                <input id="apellidos_registro" name="apellidos_registro" type="text" placeholder="Apellidos *" class="form-control input-lg" ng-model="apellidos_registro" ng-value="apellidos" ng-minlength="6" ng-maxlength="39" required vacio-directive usuario-directive />
+                            </div>
+                            <span class="texto-error" ng-show="registro.apellidos_registro.$error.vacioDirective && registro.apellidos_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Los apellidos no pueden estar vacíos.</span>
+                            <span class="texto-error" ng-show="registro.apellidos_registro.$error.usuarioDirective"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Los apellidos deben contener únicamente carácteres alfabéticos.</span>
+                            <span class="texto-error" ng-show="registro.apellidos_registro.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Los apellidos deben contener más de 5 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.apellidos_registro.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Los apellidos deben contener menos de 40 carácteres.</span>
+                        </div>
+
+                        <!-- Campo NIF -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.nif_registro.$error.vacioDirective && registro.nif_registro.$dirty) || registro.nif_registro.$error.usuarioDirective || registro.nif_registro.$error.minlength || registro.nif_registro.$error.maxlength}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></div>
+                                <input id="nif_registro" name="nif_registro" type="text" placeholder="NIF *" class="form-control input-lg" ng-model="nif_registro" ng-value="nif" ng-minlength="9" ng-maxlength="9" required vacio-directive usuario-directive />
+                            </div>
+                            <span class="texto-error" ng-show="registro.nif_registro.$error.vacioDirective && registro.nif_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El NIF no puede estar vacío.</span>
+                            <span class="texto-error" ng-show="registro.nif_registro.$error.usuarioDirective"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El NIF debe contener únicamente carácteres alfanuméricos.</span>
+                            <span class="texto-error" ng-show="registro.nif_registro.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El NIF debe contener 9 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.nif_registro.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El NIF debe contener 9 carácteres.</span>
+                        </div>
+
+                        <!-- Campo CONTRASEÑA -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.password_registro.$error.vacioDirective && registro.password_registro.$dirty) || registro.password_registro.$error.pwmatch || registro.password_registro.$error.minlength || registro.password_registro.$error.maxlength}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></div>
+                                <input id="password_registro" name="password_registro" type="password" placeholder="Contraseña *" class="form-control input-lg" ng-model="password_registro" ng-value="password" ng-minlength="4" ng-maxlength="15" required vacio-directive />
+                            </div>
+                            <span class="texto-error" ng-show="registro.password_registro.$error.vacioDirective && registro.password_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña no puede estar vacía.</span>
+                            <span class="texto-error" ng-show="registro.password_registro.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña debe contener más de 3 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.password_registro.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña debe contener menos de 16 carácteres.</span>
+                        </div>
+
+                        <!-- Campo REPETIR CONTRASEÑA -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.password2_registro.$error.vacioDirective && registro.password2_registro.$dirty) || registro.password2_registro.$error.pwmatch || registro.password2_registro.$error.minlength || registro.password2_registro.$error.maxlength}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></div>
+                                <input id="password2_registro" name="password2_registro" type="password" placeholder="Repetir contraseña *" class="form-control input-lg" ng-model="password2_registro" ng-value="password2" ng-minlength="4" ng-maxlength="15" required vacio-directive password-directive='password' />
+                            </div>
+                            <span class="texto-error" ng-show="registro.password2_registro.$error.vacioDirective && registro.password2_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña no puede estar vacía.</span>
+                            <span class="texto-error" ng-show="registro.password2_registro.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña debe contener más de 3 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.password2_registro.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña debe contener menos de 16 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.password2_registro.$error.pwmatch"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Las contraseñas deben coincidir.</span>
+                        </div>
+
+                        <!-- Boton SIGUIENTE -->
+                        <div class="form-group form-group-lg">
+                            <button type="button" id="btn_registro" class="btn btn-primary btn-lg btn-block nextBtn" ng-click="paso1=true">SIGUIENTE <i class="glyphicon glyphicon-arrow-right" aria-hidden="true"></i></button>
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SEGUNDO PASO - Datos de contacto -->
+                    <div class="setup-content" id="step-2">
+                        <!-- Campo Dirección -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.direccion_registro.$error.vacioDirective && registro.direccion_registro.$dirty) || registro.direccion_registro.$error.usuarioDirective || registro.direccion_registro.$error.minlength || registro.direccion_registro.$error.maxlength}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i></div>
+                                <input id="direccion_registro" name="direccion_registro" type="text" placeholder="Dirección *" class="form-control input-lg" ng-model="direccion_registro" ng-value="direccion" ng-minlength="11" ng-maxlength="99" required vacio-directive usuario-directive />
+                            </div>
+                            <span class="texto-error" ng-show="registro.direccion_registro.$error.vacioDirective && registro.direccion_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La dirección no puede estar vacía.</span>
+                            <span class="texto-error" ng-show="registro.direccion_registro.$error.usuarioDirective"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La dirección debe contener carácteres alfanuméricos.</span>
+                            <span class="texto-error" ng-show="registro.direccion_registro.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La dirección debe contener más de 10 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.direccion_registro.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La dirección debe contener menos de 100 carácteres.</span>
+                        </div>
+
+                        <!-- Campo Teléfono -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.telefono_registro.$error.vacioDirective && registro.telefono_registro.$dirty) || registro.telefono_registro.$error.usuarioDirective || registro.telefono_registro.$error.minlength || registro.telefono_registro.$error.maxlength}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i></div>
+                                <input id="telefono_registro" name="telefono_registro" type="tel" placeholder="Teléfono *" class="form-control input-lg" ng-model="telefono_registro" ng-value="telefono" ng-minlength="9" ng-maxlength="9" required vacio-directive usuario-directive />
+                            </div>
+                            <span class="texto-error" ng-show="registro.telefono_registro.$error.vacioDirective && registro.telefono_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El teléfono no puede estar vacío.</span>
+                            <span class="texto-error" ng-show="registro.telefono_registro.$error.usuarioDirective"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El teléfono debe contener únicamente carácteres numéricos.</span>
+                            <span class="texto-error" ng-show="registro.telefono_registro.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El teléfono debe contener 9 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.telefono_registro.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El teléfono debe contener 9 carácteres.</span>
+                        </div>
+
+                        <!-- Campo EMAIL -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.email_registro.$error.vacioDirective && registro.email_registro.$dirty) || registro.email_registro.$error.minlength || registro.email_registro.$error.maxlength}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></div>
+                                <input id="email_registro" name="email_registro" type="email" placeholder="Email *" class="form-control input-lg" ng-model="email_registro" ng-value="email" ng-minlength="11" ng-maxlength="49" required vacio-directive />
+                            </div>
+                            <span class="texto-error" ng-show="registro.email_registro.$error.vacioDirective && registro.email_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El email no puede estar vacío.</span>
+                            <span class="texto-error" ng-show="registro.email_registro.$error.minlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El email debe contener más de 10 carácteres.</span>
+                            <span class="texto-error" ng-show="registro.email_registro.$error.maxlength"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La contraseña debe contener menos de 50 carácteres.</span>
+                        </div>
+
+                        <!-- Boton SIGUIENTE -->
+                        <div class="form-group form-group-lg">
+                            <button type="button" id="btn_registro" class="btn btn-primary btn-lg btn-block nextBtn">SIGUIENTE <i class="glyphicon glyphicon-arrow-right" aria-hidden="true"></i></button>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <!-- TERCER PASO - Información adicional -->
+                    <div class="setup-content" id="step-3">
+                        <!-- Campo FECHA DE NACIMIENTO -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.nacimiento_registro.$error.vacioDirective && registro.nacimiento_registro.$dirty) || registro.nacimiento_registro.$error.usuarioDirective}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></div>
+                                <input id="nacimiento_registro" name="nacimiento_registro" type="date" placeholder="Fecha de nacimiento *" class="form-control input-lg" ng-model="nacimiento_registro" ng-value="nacimiento" required vacio-directive usuario-directive />
+                            </div>
+                            <span class="texto-error" ng-show="registro.nacimiento_registro.$error.vacioDirective && registro.nacimiento_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>La fecha de nacimiento no puede estar vacía.</span>
+                        </div>
+
+                        <!-- Campo SEXO -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.sexo_registro.$error.vacioDirective && registro.sexo_registro.$dirty) || registro.sexo_registro.$error.usuarioDirective}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></div>
+                                <select id="sexo_registro" name="sexo_registro" placeholder="Sexo *" class="form-control input-lg" ng-model="sexo_registro" required>
+                                    <option value="0" ng-value="0">Sexo</option>
+                                    <option value="1" ng-value="1">Hombre</option>
+                                    <option value="2" ng-value="2">Mujer</option>
+                                    <option value="3" ng-value="3">Otro</option>
+                                </select>
+                            </div>
+                            <span class="texto-error" ng-show="registro.sexo_registro.$error.vacioDirective && registro.sexo_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El sexo no puede estar vacío.</span>
+                        </div>
+
+                        <!-- Campo ESTADO CIVIL -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.civil_registro.$error.vacioDirective && registro.civil_registro.$dirty) || registro.civil_registro.$error.usuarioDirective}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></div>
+                                <select id="civil_registro" name="civil_registro" placeholder="Estado civil *" class="form-control input-lg" ng-model="civil_registro" required>
+                                    <option value="0" ng-value="0">Estado civil</option>
+                                    <option value="1" ng-value="1">Soltero/a</option>
+                                    <option value="2" ng-value="2">Casado/a</option>
+                                    <option value="3" ng-value="3">Divorciado/a</option>
+                                    <option value="4" ng-value="4">Viudo/a</option>
+                                </select>
+                            </div>
+                            <span class="texto-error" ng-show="registro.civil_registro.$error.vacioDirective && registro.civil_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El estado civil no puede estar vacío.</span>
+                        </div>
+
+                        <!-- Boton SIGUIENTE -->
+                        <div class="form-group form-group-lg">
+                            <button type="button" id="btn_registro" class="btn btn-primary btn-lg btn-block nextBtn">SIGUIENTE <i class="glyphicon glyphicon-arrow-right" aria-hidden="true"></i></button>
+                        </div>
+
+                    </div>
+
+
+                     <!-- CUARTO PASO - ROL -->
+                    <div class="setup-content" id="step-4">
+                        <!-- Campo ROL -->
+                        <div class="form-group form-group-lg" ng-class="{'has-error': (registro.rol_registro.$error.vacioDirective && registro.rol_registro.$dirty) || registro.rol_registro.$error.usuarioDirective}">
+                            <div class="input-group roles-formulario">
+                                <input type="checkbox" ng-model="rol_registro.paciente" class="check">
+                                <input type="checkbox" ng-model="rol_registro.familiar" class="check">
+                                <input type="checkbox" ng-model="rol_registro.medico" class="check">
+                                <input type="checkbox" ng-model="rol_registro.recepcionista" class="check">
+                            </div>
+                            <span class="texto-error" ng-show="registro.rol_registro.$error.vacioDirective && registro.rol_registro.$dirty"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>El rol no puede estar vacío.</span>
+                        </div>
+
+                        <!-- Boton FINALIZAR -->
+                        <div class="form-group form-group-lg">
+                            <button type="submit" id="btn_registro" class="btn btn-primary successBtn btn-lg btn-block">FINALIZAR <i class="glyphicon glyphicon-check" aria-hidden="true"></i></button>
+                            <!-- ng-disabled="!registro.$valid" -->
+                        </div>
+
+                    </div>
+
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+<!--
+        <form role="form">
+            <div class="panel panel-primary setup-content" id="step-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Datos personales</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label">First Name</label>
+                        <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Last Name</label>
+                        <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
+                    </div>
+                    <button class="btn btn-primary nextBtn pull-right" type="button">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="panel panel-primary setup-content" id="step-2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Datos de contacto</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label">Company Name</label>
+                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Company Address</label>
+                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
+                    </div>
+                    <button class="btn btn-primary nextBtn pull-right" type="button">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="panel panel-primary setup-content" id="step-3">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Información adicional</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label">Company Name</label>
+                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Company Address</label>
+                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
+                    </div>
+                    <button class="btn btn-primary nextBtn pull-right" type="button">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="panel panel-primary setup-content" id="step-4">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Rol</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label">Company Name</label>
+                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Company Address</label>
+                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
+                    </div>
+                    <button class="btn btn-success pull-right" type="submit">Finalizar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+-->
+
+
+    <br><br><a ui-sref="chronicall.publico.inicio" ng-click="cabeceraInicio()" class="volver-menu">VOLVER</a>
+
+</div>

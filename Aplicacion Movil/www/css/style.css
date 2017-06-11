@@ -1,0 +1,165 @@
+@font-face {
+    font-family: PoiretOne;
+    src: url(../fonts/poiretone.ttf);
+}
+
+@font-face {
+    font-family: Syncopate;
+    src: url(../fonts/syncopate.ttf);
+}
+
+@font-face {
+    font-family: SyncopateBold;
+    src: url(../fonts/syncopatebold.ttf);
+}
+
+.fondo-principal {
+    background: #2d434b;
+}
+
+.fondo-secundario {
+    background: #b3ba60;
+}
+
+.logo-inicial {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: block;
+}
+
+/* Cabecera - LOGO */
+.logo h1 {
+    font-family: Syncopate;
+    color: #fff;
+    font-size: 30px;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.subtitulo {
+    color: #9fb2b9;
+    padding-bottom: 20px;
+    font-family: PoiretOne;
+    font-size: 20px;
+}
+
+
+.contenedor-texto-inicial {
+    display: block;
+    margin-bottom: 60px;
+}
+
+.texto-inicial {
+    color: #FFF;
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: block;
+}
+
+.contenedor-botones-autenticacion {
+    margin-top: 20px;
+}
+
+.contenedor-botones-autenticacion .icon {
+    margin-right: 8px;
+}
+
+.boton-inicial {
+    background: transparent;
+    border: 1px solid #FFF;
+    color: #FFF;
+}
+
+.boton-inicial:hover {
+    background: #FFF;
+    border: 1px solid #FFF;
+    color: #2d434b;
+    cursor: pointer;
+}
+
+.formulario-autenticacion .list {
+    border-radius: 0;
+    border: 0;
+}
+
+
+.formulario-autenticacion .item-input {
+    border: 0;
+    margin-top: 20px;
+}
+
+.formulario-autenticacion .contenedor_toggle {
+    border: 0;
+    background: transparent;
+    padding: 0px;
+}
+
+.formulario-autenticacion h3 {
+    color: #FFF;
+    border-bottom: 1px solid #FFF;
+    cursor: pointer;
+}
+
+
+
+.menu-listado {
+    border-right: 1px solid #FFF;
+}
+
+.titulo-menu {
+    width: 100%;
+    margin: 0px !important;
+    color: #2d434b !important;
+}
+
+.item-menu {
+    color: #FFF;
+    background: #2d434b;
+}
+
+.item-menu:hover {
+    color: #2d434b;
+    background: #FFF;
+    cursor: pointer;
+}
+
+.icono-menu {
+    width: 20px;
+    margin-right: 10px;
+}
+
+
+
+
+.icon-card {
+    margin-right: 5px;
+}
+
+.chroni-card {
+    border: none;
+    margin-bottom: 2px;
+}
+
+.chroni-card a {
+    color: #5d7682;
+}
+
+.chroni-card a:hover,
+.chroni-card a:active,
+.chroni-card a:focus {
+    color: #2d434b;
+}
+
+.chroni-card h2 {
+    width: 100% !important;
+}
+
+.chroni-card h2 span {
+    margin-right: 5px;
+}

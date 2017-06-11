@@ -1,0 +1,61 @@
+/* DIARIO */
+
+#diario-modal hr {
+    width: 90%;
+}
+
+
+
+
+
+
+
+
+.panel-izquierdo-diario {
+    /*background: #000;*/
+}
+
+.panel-derecho-diario {
+    /*background: #ccc;*/
+}
+
+.noteList li {
+    /*color: #ffffff;*/
+    margin: 10px;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.noteList li a {
+    border: 0 !important;
+    background: #fff;
+    color: #1c4855;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.icono-sintoma {
+    float: right;
+    /*color: rgba(255,255,255,0.4);*/
+    font-weight: bold;
+    padding: 0 !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .panel-izquierdo-diario {
+        border-right: 1px solid #1c4855;
+    }
+}
+
+.panel-izquierdo-diario a {
+    padding: 5px 8px;
+    background: #1c4855;
+    color: #fff;
+    border: 1px solid #1c4855;
+    text-align: center;
+}
+
+.panel-izquierdo-diario a:hover {
+    background: #fff;
+    color: #1c4855 !important;
+}
