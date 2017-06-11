@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="ActivityEN" table="Activity"> 
+				  	
+						<id name="Identifier" column="identifierActivity" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Progress" type="string"> 
+						<column name="progress"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="StartDate" type="date"> 
+						<column name="startDate"  not-null="true"/>
+					</property>
+					<property name="EndDate" type="date"> 
+						<column name="endDate"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="CarePlan" class="ChroniGenNHibernate.EN.Chroni.CarePlanEN" >	
+								<column name="FK_identifierCarePlan_idCarePlan"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+		  			
+						<bag name="Medication" table="[activity_medication]"  cascade="delete">
+							<key>
+								
+									<column name="FK_identifierActivity_idActivity"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.MedicationEN">
+									<column name="FK_identifierMedication_idMedication"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ActivityENReadAllHQL">from ActivityEN</query>
+		  <query name="ActivityENgetActivitiesByIntervalHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivitiesByPatient_IntervalHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivitiesByPractitioner_IntervalHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivitiesByCarePlanHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivitiesByCarePlanCategoryDisplayHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivitiesByPatientNifHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivityByPractitionerNifHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivitiesByPatientNif_DescriptionHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivitiesByDescriptionHQL"><![CDATA[FROM ActivityEN]]></query>
+		  <query name="ActivityENgetActivitiesByMedicationNameHQL"><![CDATA[FROM ActivityEN]]></query>
+		</hibernate-mapping>
+	

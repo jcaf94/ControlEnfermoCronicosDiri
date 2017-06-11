@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="SpecialtyEN" table="Specialty"> 
+				  	
+						<id name="Identifier" column="identifierSpecialty" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Code" type="string"> 
+						<column name="code"  not-null="true"/>
+					</property>
+					<property name="Display" type="string"> 
+						<column name="display"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Practitioner" >
+							<key>
+							
+								
+								<column name="FK_identifierSpecialty_idSpecialty"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.PractitionerEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="SpecialtyENReadAllHQL">from SpecialtyEN</query>
+		  <query name="SpecialtyENgetSpecialtyByCodeHQL"><![CDATA[FROM SpecialtyEN]]></query>
+		  <query name="SpecialtyENgetSpecialtyByDisplayHQL"><![CDATA[FROM SpecialtyEN]]></query>
+		  <query name="SpecialtyENgetSpecialtiesByPractitionerHQL"><![CDATA[FROM SpecialtyEN]]></query>
+		  <query name="SpecialtyENgetSpecialtiesByPractitionerNifHQL"><![CDATA[FROM SpecialtyEN]]></query>
+		  <query name="SpecialtyENgetSpecialtiesByPractitionerName_SurnamesHQL"><![CDATA[FROM SpecialtyEN]]></query>
+		  <query name="SpecialtyENgetSpecialtiesByLocationNameHQL"><![CDATA[FROM SpecialtyEN]]></query>
+		</hibernate-mapping>
+	

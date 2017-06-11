@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="PractitionerEN" table="Practitioner"> 
+				  	
+						<id name="Identifier" column="identifierPractitioner" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nif" type="string"> 
+						<column name="nif"  not-null="true"/>
+					</property>
+					<property name="Active" type="boolean"> 
+						<column name="active"  not-null="true"/>
+					</property>
+					<property name="Role" > 
+						<column name="role"  not-null="true"/>
+					</property>
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Surnames" type="string"> 
+						<column name="surnames"  not-null="true"/>
+					</property>
+					<property name="Gender" > 
+						<column name="gender"  not-null="true"/>
+					</property>
+					<property name="BirthDate" type="date"> 
+						<column name="birthDate"  not-null="true"/>
+					</property>
+					<property name="Address" type="string"> 
+						<column name="address"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  not-null="true"/>
+					</property>
+					<property name="Phone" type="string"> 
+						<column name="phone"  not-null="true"/>
+					</property>
+					<property name="Photo" type="string"> 
+						<column name="photo"  not-null="true"/>
+					</property>
+					<property name="StartDate" type="date"> 
+						<column name="startDate"  not-null="true"/>
+					</property>
+					<property name="EndDate" type="date"> 
+						<column name="endDate"  not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Location" table="[practicioner_location]"  >
+							<key>
+								
+									<column name="FK_identifierPractitioner_idPracticioner"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.LocationEN">
+									<column name="FK_identifierLocation_idLocation"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Diary" table="[practicioner_diary]"  >
+							<key>
+								
+									<column name="FK_identifierPractitioner_idPracticioner"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.DiaryEN">
+									<column name="FK_identifierDiary_idDiary"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Encounter" table="[practicioner_encounter]"  >
+							<key>
+								
+									<column name="FK_identifierPractitioner_idPracticioner"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.EncounterEN">
+									<column name="FK_identifierEncounter_idEncounter"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Conversation" >
+							<key>
+							
+								
+								<column name="FK_identifierPractitioner_idPracticioner"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ConversationEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Reclamation" >
+							<key>
+							
+								
+								<column name="FK_identifierPractitioner_idPracticioner"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ReclamationEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Schedule" >
+							<key>
+							
+								
+								<column name="FK_identifierPractitioner_idPracticioner"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ScheduleEN"/>
+					    </bag>
+					
+			
+			
+		  			
+						<bag name="Patient" table="[practitioner_patient]"  >
+							<key>
+								
+									<column name="FK_identifierPractitioner_idPractitioner"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.PatientEN">
+									<column name="FK_identifierPatient_idPatient"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Specialty" class="ChroniGenNHibernate.EN.Chroni.SpecialtyEN" >	
+								<column name="FK_identifierSpecialty_idSpecialty"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="AssessmentPractitioner" >
+							<key>
+							
+								
+								<column name="FK_identifierPractitioner_idPractitioner"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.AssessmentEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PractitionerENReadAllHQL">from PractitionerEN</query>
+		  <query name="PractitionerENgetPractitionersByRole_LocationHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersByActive_LocationHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersByName_Surname_LocationHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersByPatientNifHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersByGender_LocationHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersByRole_LocationNameHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionerByNifHQL"><![CDATA[FROM PractitionerEN as prac WHERE prac.Nif = :p_nif]]></query>
+		  <query name="PractitionerENgetPractitionersByLocationHQL"><![CDATA[SELECT pra FROM PractitionerEN as pra inner join pra.Location as loc where loc.Identifier = :p_location]]></query>
+		  <query name="PractitionerENgetPractitionersByLocationNameHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionerByPhoneHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionerBySpecialtyDisplayHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersBySpecialtyCodeHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersBySpecialtyDisplay_IntervalHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersByBirthIntervalHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionersByPatientName_SurnamesHQL"><![CDATA[FROM PractitionerEN]]></query>
+		  <query name="PractitionerENgetPractitionerByEmailHQL"><![CDATA[FROM PractitionerEN]]></query>
+		</hibernate-mapping>
+	

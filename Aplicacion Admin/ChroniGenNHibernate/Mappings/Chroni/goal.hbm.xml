@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="GoalEN" table="Goal"> 
+				  	
+						<id name="Identifier" column="identifierGoal" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Subject" type="string"> 
+						<column name="subject"  not-null="true"/>
+					</property>
+					<property name="StatusDate" type="date"> 
+						<column name="statusDate"  not-null="true"/>
+					</property>
+					<property name="Target" type="string"> 
+						<column name="target"  not-null="true"/>
+					</property>
+					<property name="Category" > 
+						<column name="category"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="Status" > 
+						<column name="status"  not-null="true"/>
+					</property>
+					<property name="Priority" > 
+						<column name="priority"  not-null="true"/>
+					</property>
+					<property name="Note" type="string"> 
+						<column name="note"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="CarePlan" class="ChroniGenNHibernate.EN.Chroni.CarePlanEN" >	
+								<column name="FK_identifierCarePlan_idCarePlan"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="GoalENReadAllHQL">from GoalEN</query>
+		  <query name="GoalENgetCoalsByPatient_IntervalHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByPatient_Category_IntervalHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByPatient_StatusHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByPatient_Category_StatusHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByPatient_Priority_IntervalHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByCarePlanHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByPatientNifHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByPatientNif_IntervalHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByPatientNif_Category_StatusHQL"><![CDATA[FROM GoalEN]]></query>
+		  <query name="GoalENgetGoalsByPatientNif_Priority_IntervalHQL"><![CDATA[FROM GoalEN]]></query>
+		</hibernate-mapping>
+	

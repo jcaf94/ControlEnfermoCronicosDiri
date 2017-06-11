@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="ConditionCodeEN" table="ConditionCode"> 
+				  	
+						<id name="Identifier" column="identifierConditionCode" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Code" type="string"> 
+						<column name="code"  not-null="true"/>
+					</property>
+					<property name="Display" type="string"> 
+						<column name="display"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Condition" >
+							<key>
+							
+								
+								<column name="FK_identifierConditionCode_idConditionCode"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ConditionEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ConditionCodeENReadAllHQL">from ConditionCodeEN</query>
+		  <query name="ConditionCodeENGetConditionCodeByCodeHQL"><![CDATA[FROM ConditionCodeEN]]></query>
+		  <query name="ConditionCodeENGetConditionCodeByDisplayHQL"><![CDATA[FROM ConditionCodeEN]]></query>
+		</hibernate-mapping>
+	

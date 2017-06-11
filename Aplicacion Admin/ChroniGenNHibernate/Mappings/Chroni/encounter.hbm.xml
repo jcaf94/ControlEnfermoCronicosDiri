@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="EncounterEN" table="Encounter"> 
+				  	
+						<id name="Identifier" column="identifierEncounter" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Status" > 
+						<column name="status"  not-null="true"/>
+					</property>
+					<property name="Type" > 
+						<column name="type"  not-null="true"/>
+					</property>
+					<property name="Priority" > 
+						<column name="priority"  not-null="true"/>
+					</property>
+					<property name="StartDate" type="date"> 
+						<column name="startDate"  not-null="true"/>
+					</property>
+					<property name="EndDate" type="date"> 
+						<column name="endDate"  not-null="true"/>
+					</property>
+					<property name="Reason" type="string"> 
+						<column name="reason"  not-null="true"/>
+					</property>
+					<property name="ServiceProvider" type="string"> 
+						<column name="serviceProvider"  not-null="true"/>
+					</property>
+					<property name="Note" type="string"> 
+						<column name="note"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Patient" class="ChroniGenNHibernate.EN.Chroni.PatientEN" >	
+								<column name="FK_identifierPatient_idPatient"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Practitioner" table="[practicioner_encounter]" inverse="true" >
+							<key>
+								
+									<column name="FK_identifierEncounter_idEncounter"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.PractitionerEN">
+									<column name="FK_identifierPractitioner_idPracticioner"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+					
+							<many-to-one name="Condition" class="ChroniGenNHibernate.EN.Chroni.ConditionEN" cascade="delete">
+								<column name="FK_identifierCondition_idCondition"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+						<bag name="CarePlan" >
+							<key>
+							
+								
+								<column name="FK_identifierEncounter_idEncounter"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.CarePlanEN"/>
+					    </bag>
+					
+			
+		  			
+					
+							<many-to-one name="Slot" class="ChroniGenNHibernate.EN.Chroni.SlotEN" >
+								<column name="FK_identifierSlot_idSlot"/> 
+        					</many-to-one>
+					 
+						
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="EncounterENReadAllHQL">from EncounterEN</query>
+		  <query name="EncounterENgetEncountersByPatientHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatient_StatusHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatient_IntervalHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatient_PractitionerHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPractitionerHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEnconntersByPractitioner_StatusHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByConditionCategoryHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByCondidionClinicalStatusHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByConditionCodeCodeHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByConditionCodeDisplayHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatientNifHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPractitionerNifHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatientName_SurnamesHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPractitionerName_SurnamesHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersBySpecialtyCodeHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersBySpecialtyDisplayHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatientNif_PractitionerSpecialtyDisplayHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByInterval_PriorityHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatientNif_StatusHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatientNif_IntervalHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPatientNif_PractitionerName_SurnamesHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPractitionerNif_IntervalHQL"><![CDATA[FROM EncounterEN]]></query>
+		  <query name="EncounterENgetEncountersByPractitionerNif_StatusHQL"><![CDATA[FROM EncounterEN]]></query>
+		</hibernate-mapping>
+	

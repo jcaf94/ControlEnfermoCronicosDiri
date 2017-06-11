@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="ConditionEN" table="Condition"> 
+				  	
+						<id name="Identifier" column="identifierCondition" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Category" > 
+						<column name="category"  not-null="true"/>
+					</property>
+					<property name="ClinicalStatus" > 
+						<column name="clinicalStatus"  not-null="true"/>
+					</property>
+					<property name="Severity" > 
+						<column name="severity"  not-null="true"/>
+					</property>
+					<property name="Onset" type="string"> 
+						<column name="onset"  not-null="true"/>
+					</property>
+					<property name="Abatement" type="string"> 
+						<column name="abatement"  not-null="true"/>
+					</property>
+					<property name="Note" type="string"> 
+						<column name="note"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+					
+							   <one-to-one name="Encounter" class="ChroniGenNHibernate.EN.Chroni.EncounterEN" property-ref="Condition" />							
+					 
+						
+			
+		  			
+						<many-to-one name="ConditionCode" class="ChroniGenNHibernate.EN.Chroni.ConditionCodeEN" >	
+								<column name="FK_identifierConditionCode_idConditionCode"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+			
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ConditionENReadAllHQL">from ConditionEN</query>
+		  <query name="ConditionENgetConditionsByPatientHQL"><![CDATA[FROM ConditionEN]]></query>
+		  <query name="ConditionENgetConditionsByPatient_ClinicalStatusHQL"><![CDATA[FROM ConditionEN]]></query>
+		  <query name="ConditionENgetConditionsByConditionCodeCodeHQL"><![CDATA[FROM ConditionEN]]></query>
+		  <query name="ConditionENgetConditionsByConditionCode_DisplayHQL"><![CDATA[FROM ConditionEN]]></query>
+		</hibernate-mapping>
+	

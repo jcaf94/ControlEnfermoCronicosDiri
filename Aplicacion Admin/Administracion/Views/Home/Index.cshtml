@@ -1,0 +1,74 @@
+﻿@model Administracion.Models.Acceso
+
+@{
+    ViewBag.Title = Administracion.Resources.textos.tituloInicio;
+}
+
+<!-- Top content -->
+<div class="top-content">
+
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <img src="assets/img/logo.png" height="84" width="84">
+                    <h2><strong> Cronicall Admin </strong>  </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>@Administracion.Resources.textos.subtituloInicio</h3>
+                            <p>@Administracion.Resources.textos.formInicio</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+
+
+                        @using (Html.BeginForm("Acceso", "Home"))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="login-form">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="form-group">
+                                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-username form-control", type = "text", placeholder = Administracion.Resources.textos.placeHolderInicioUsuario } })
+                                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-password form-control", type="password", placeholder= Administracion.Resources.textos.placeHolderInicioPass } })
+                                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                </div>
+
+                                <input type="submit" class="btn btn-primary" value="@Administracion.Resources.textos.botonIncio"/>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <br><br>
+            <div id="botonera-idioma" class="col-md-4 col-md-offset-5 btn-group">
+                <button id="btn-es" lang="es" class="btn btn-xs btndefault">Español</button>
+                <button id="btn-en" lang="en" class="btn btn-xs btndefault">English</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+}

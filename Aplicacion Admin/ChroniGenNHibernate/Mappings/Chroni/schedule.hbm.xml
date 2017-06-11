@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="ScheduleEN" table="Schedule"> 
+				  	
+						<id name="Identifier" column="identifierSchedule" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Active" type="boolean"> 
+						<column name="active"  not-null="true"/>
+					</property>
+					<property name="MorningStart" type="date"> 
+						<column name="morningStart"  not-null="true"/>
+					</property>
+					<property name="MorningEnd" type="date"> 
+						<column name="morningEnd"  not-null="true"/>
+					</property>
+					<property name="AfternoonStart" type="date"> 
+						<column name="afternoonStart"  not-null="true"/>
+					</property>
+					<property name="AfternoonEnd" type="date"> 
+						<column name="afternoonEnd"  not-null="true"/>
+					</property>
+					<property name="DateStart" type="date"> 
+						<column name="dateStart"  not-null="true"/>
+					</property>
+					<property name="DateEnd" type="date"> 
+						<column name="dateEnd"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<bag name="Slot" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_identifierSchedule_idSchedule"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.SlotEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Practitioner" class="ChroniGenNHibernate.EN.Chroni.PractitionerEN" >	
+								<column name="FK_identifierPractitioner_idPracticioner"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Location" class="ChroniGenNHibernate.EN.Chroni.LocationEN" >	
+								<column name="FK_identifierLocation_idLocation"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+			
+			
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ScheduleENReadAllHQL">from ScheduleEN</query>
+		  <query name="ScheduleENgetSchedulesByPractitionerHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitioner_IntervalHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitioner_Interval_ActiveHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitionerNif_IntervalHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitioner_LocationHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitionerSurnames_IntervalHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitionerSurnames_Interval_ActiveHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitionerNifHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitionerSurnames_ActiveHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesBySpecialtyDisplay_ActiveHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitionerSpecialty_LocationName_ActiveHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitionerSurnames_LocationName_ActiveHQL"><![CDATA[FROM ScheduleEN]]></query>
+		  <query name="ScheduleENgetSchedulesByPractitionerNif_LocationName_ActiveHQL"><![CDATA[FROM ScheduleEN]]></query>
+		</hibernate-mapping>
+	

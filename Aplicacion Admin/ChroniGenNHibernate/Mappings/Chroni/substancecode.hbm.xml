@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="SubstanceCodeEN" table="SubstanceCode"> 
+				  	
+						<id name="Identifier" column="identifierSubstanceCode" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Code" type="string"> 
+						<column name="code"  not-null="true"/>
+					</property>
+					<property name="Display" type="string"> 
+						<column name="display"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Ingredient" >
+							<key>
+							
+								
+								<column name="FK_identifierSubstanceCode_idSubstanceCode"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.IngredientEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="SubstanceCodeENReadAllHQL">from SubstanceCodeEN</query>
+		  <query name="SubstanceCodeENgetSubstanceCodeByCodeHQL"><![CDATA[FROM SubstanceCodeEN]]></query>
+		  <query name="SubstanceCodeENgetSubstanceCodeByDisplayHQL"><![CDATA[FROM SubstanceCodeEN]]></query>
+		</hibernate-mapping>
+	

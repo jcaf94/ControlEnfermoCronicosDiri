@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="CarePlanEN" table="CarePlan"> 
+				  	
+						<id name="Identifier" column="identifierCarePlan" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Subject" type="string"> 
+						<column name="subject"  not-null="true"/>
+					</property>
+					<property name="Status" > 
+						<column name="status"  not-null="true"/>
+					</property>
+					<property name="Context" type="string"> 
+						<column name="context"  not-null="true"/>
+					</property>
+					<property name="StartDate" type="date"> 
+						<column name="startDate"  not-null="true"/>
+					</property>
+					<property name="Modified" type="date"> 
+						<column name="modified"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="Note" type="string"> 
+						<column name="note"  not-null="true"/>
+					</property>
+					<property name="EndDate" type="date"> 
+						<column name="endDate"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Activity" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_identifierCarePlan_idCarePlan"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ActivityEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Encounter" class="ChroniGenNHibernate.EN.Chroni.EncounterEN" >	
+								<column name="FK_identifierEncounter_idEncounter"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Goal" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_identifierCarePlan_idCarePlan"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.GoalEN"/>
+					    </bag>
+					
+			
+			
+		  			
+						<bag name="CarePlanCategory" table="[carePlan_carePlanCategory]"  >
+							<key>
+								
+									<column name="FK_identifierCarePlan_idCarePlan"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.CarePlanCategoryEN">
+									<column name="FK_identifierCarePlanCategory_idCarePlanCategory"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CarePlanENReadAllHQL">from CarePlanEN</query>
+		  <query name="CarePlanENgetCarePlansByCategoryCode_PeriodHQL"><![CDATA[FROM CarePlanEN]]></query>
+		  <query name="CarePlanENgetCarePlansByStatus_PeriodHQL"><![CDATA[FROM CarePlanEN]]></query>
+		  <query name="CarePlanENgetCarePlansByPatientHQL"><![CDATA[FROM CarePlanEN]]></query>
+		  <query name="CarePlanENgetCarePlansByPatient_PractitionerHQL"><![CDATA[FROM CarePlanEN]]></query>
+		  <query name="CarePlanENgetCarePlansByPatient_StatusHQL"><![CDATA[FROM CarePlanEN]]></query>
+		  <query name="CarePlanENgetCarePlansByCategoryDisplay_PeriodHQL"><![CDATA[FROM CarePlanEN]]></query>
+		</hibernate-mapping>
+	

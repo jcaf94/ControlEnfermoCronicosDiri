@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("~/Areas/DashBoard/Views/Shared/parcial_head.cshtml")
+    @RenderSection("styles", false)
+</head>
+<body>
+    
+    @Html.Partial("~/Areas/DashBoard/Views/Shared/parcial_nav.cshtml")
+    @Html.Partial("~/Areas/DashBoard/Views/Shared/parcial_menu.cshtml")
+    <div class="">
+        @RenderBody()
+    </div>
+
+    @Html.Partial("~/Areas/DashBoard/Views/Shared/parcial_foot.cshtml")
+    @RenderSection("Scripts", false)
+
+</body>
+</html>

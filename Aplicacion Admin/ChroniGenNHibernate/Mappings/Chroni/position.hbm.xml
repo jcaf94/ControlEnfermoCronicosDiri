@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="PositionEN" table="Position"> 
+				  	
+						<id name="Identifier" column="identifierPosition" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Latitude" type="double"> 
+						<column name="latitude"  not-null="true"/>
+					</property>
+					<property name="Longitude" type="double"> 
+						<column name="longitude"  not-null="true"/>
+					</property>
+					<property name="Altitude" type="double"> 
+						<column name="altitude"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+					
+							   <one-to-one name="Location" class="ChroniGenNHibernate.EN.Chroni.LocationEN" property-ref="Position" />							
+					 
+						
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PositionENReadAllHQL">from PositionEN</query>
+		  <query name="PositionENgetPositionByLocationHQL"><![CDATA[FROM PositionEN]]></query>
+		  <query name="PositionENgetPositionByLocationNameHQL"><![CDATA[FROM PositionEN]]></query>
+		  <query name="PositionENgetPositionsByLocationPostalCodeHQL"><![CDATA[FROM PositionEN]]></query>
+		</hibernate-mapping>
+	

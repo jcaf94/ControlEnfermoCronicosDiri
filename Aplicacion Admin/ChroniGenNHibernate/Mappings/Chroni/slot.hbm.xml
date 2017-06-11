@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="SlotEN" table="Slot"> 
+				  	
+						<id name="Identifier" column="identifierSlot" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Status" > 
+						<column name="status"  not-null="true"/>
+					</property>
+					<property name="StartDate" type="date"> 
+						<column name="startDate"  not-null="true"/>
+					</property>
+					<property name="EndDate" type="date"> 
+						<column name="endDate"  not-null="true"/>
+					</property>
+					<property name="Note" type="string"> 
+						<column name="note"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+					
+							   <one-to-one name="Encounter" class="ChroniGenNHibernate.EN.Chroni.EncounterEN" property-ref="Slot" />							
+					 
+						
+			
+		  			
+						<many-to-one name="Schedule" class="ChroniGenNHibernate.EN.Chroni.ScheduleEN" >	
+								<column name="FK_identifierSchedule_idSchedule"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="SlotENReadAllHQL">from SlotEN</query>
+		  <query name="SlotENgetSlotsByPractitioner_Interval_Status_LocationNameHQL"><![CDATA[FROM SlotEN]]></query>
+		  <query name="SlotENgetSlotsByPatient_IntervalHQL"><![CDATA[FROM SlotEN]]></query>
+		  <query name="SlotENgetSlotsByPractitionerNif_Interval_StatusHQL"><![CDATA[FROM SlotEN]]></query>
+		  <query name="SlotENgetSlotsByPractitionerNif_Interval_Status_LocationNameHQL"><![CDATA[FROM SlotEN]]></query>
+		  <query name="SlotENgetSlotsByPatientNifHQL"><![CDATA[FROM SlotEN]]></query>
+		  <query name="SlotENgetSlotsByPatientName_SurnamesHQL"><![CDATA[FROM SlotEN]]></query>
+		  <query name="SlotENgetSlotsByEncounterTypeHQL"><![CDATA[FROM SlotEN]]></query>
+		  <query name="SlotENgetSlotsByEncounterStatusHQL"><![CDATA[FROM SlotEN]]></query>
+		  <query name="SlotENgetSlotsBySpecialtyDisplay_LocationName_Interval_StatusHQL"><![CDATA[FROM SlotEN]]></query>
+		</hibernate-mapping>
+	

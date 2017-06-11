@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="ReclamationEN" table="Reclamation"> 
+				  	
+						<id name="Identifier" column="identifierReclamation" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Action" > 
+						<column name="action"  not-null="true"/>
+					</property>
+					<property name="Subject" type="string"> 
+						<column name="subject"  not-null="true"/>
+					</property>
+					<property name="Content" type="string"> 
+						<column name="content"  not-null="true"/>
+					</property>
+					<property name="StartDate" type="date"> 
+						<column name="startDate"  not-null="true"/>
+					</property>
+					<property name="Note" type="string"> 
+						<column name="note"  not-null="true"/>
+					</property>
+					<property name="Resolved" type="boolean"> 
+						<column name="resolved"  not-null="true"/>
+					</property>
+					<property name="Type" > 
+						<column name="type"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+					
+							<many-to-one name="ReclamationResponse" class="ChroniGenNHibernate.EN.Chroni.ReclamationResponseEN" >
+								<column name="FK_identifierReclamationResponse_idProcessResponse"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+						<many-to-one name="Patient" class="ChroniGenNHibernate.EN.Chroni.PatientEN" >	
+								<column name="FK_identifierPatient_idPatient"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Practitioner" class="ChroniGenNHibernate.EN.Chroni.PractitionerEN" >	
+								<column name="FK_identifierPractitioner_idPracticioner"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+			
+		  			
+						<many-to-one name="RelatedPerson" class="ChroniGenNHibernate.EN.Chroni.RelatedPersonEN" >	
+								<column name="FK_identifierRelatedPerson_idRelatedPerson"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ReclamationENReadAllHQL">from ReclamationEN</query>
+		  <query name="ReclamationENgetReclamationsByStartIntervalHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByResolved_ResponseIntervalHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByPractitionerNifHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByType_StartIntervalHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByResolved_StartIntervalHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByAction_StartIntervalHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByAction_StartInterval_PatientHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationByRelatedPersonNifHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationByAction_StartInterval_RelatedPersonHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationByEndIntervalHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByRelatedPersonNifHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationByPatientNifHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByPatientHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByRelatedPersonHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByPractitionerHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationByReclamationResponseActionStateHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByPatientSurnamesHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByRelatedPersonSurnamesHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByPractitionerSurnamesHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsBySubjectHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByContentHQL"><![CDATA[FROM ReclamationEN]]></query>
+		  <query name="ReclamationENgetReclamationsByNoteHQL"><![CDATA[FROM ReclamationEN]]></query>
+		</hibernate-mapping>
+	

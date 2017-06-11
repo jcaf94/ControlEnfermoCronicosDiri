@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="PatientEN" table="Patient"> 
+				  	
+						<id name="Identifier" column="identifierPatient" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nif" type="string"> 
+						<column name="nif"  not-null="true"/>
+					</property>
+					<property name="Active" type="boolean"> 
+						<column name="active"  not-null="true"/>
+					</property>
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Surnames" type="string"> 
+						<column name="surnames"  not-null="true"/>
+					</property>
+					<property name="Gender" > 
+						<column name="gender"  not-null="true"/>
+					</property>
+					<property name="BirthDate" type="date"> 
+						<column name="birthDate"  not-null="true"/>
+					</property>
+					<property name="Deceased" type="boolean"> 
+						<column name="deceased"  not-null="true"/>
+					</property>
+					<property name="Address" type="string"> 
+						<column name="address"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  not-null="true"/>
+					</property>
+					<property name="Phone" type="string"> 
+						<column name="phone"  not-null="true"/>
+					</property>
+					<property name="MaritalStatus" > 
+						<column name="maritalStatus"  not-null="true"/>
+					</property>
+					<property name="Photo" type="string"> 
+						<column name="photo"  not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="RelatedPerson" table="[relatedPerson_patient]" inverse="true" >
+							<key>
+								
+									<column name="FK_identifierPatient_idPatient"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.RelatedPersonEN">
+									<column name="FK_identifierRelatedPerson_idRelatedPerson"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Location" table="[location_patient]" inverse="true" >
+							<key>
+								
+									<column name="FK_identifierPatient_idPatient"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.LocationEN">
+									<column name="FK_identifierLocation_idLocation"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+					
+							<many-to-one name="Diary" class="ChroniGenNHibernate.EN.Chroni.DiaryEN" cascade="delete">
+								<column name="FK_identifierDiary_idDiary"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+						<bag name="Encounter" >
+							<key>
+							
+								
+								<column name="FK_identifierPatient_idPatient"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.EncounterEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Conversation" >
+							<key>
+							
+								
+								<column name="FK_identifierPatient_idPatient"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ConversationEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Reclamation" >
+							<key>
+							
+								
+								<column name="FK_identifierPatient_idPatient"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ReclamationEN"/>
+					    </bag>
+					
+			
+			
+		  			
+						<bag name="Practitioner" table="[practitioner_patient]" inverse="true" >
+							<key>
+								
+									<column name="FK_identifierPatient_idPatient"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.PractitionerEN">
+									<column name="FK_identifierPractitioner_idPractitioner"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="AssessmentPractitioner" >
+							<key>
+							
+								
+								<column name="FK_identifierPatient_idPatient"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.AssessmentEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PatientENReadAllHQL">from PatientEN</query>
+		  <query name="PatientENgetPatientsByGender_LocationHQL"><![CDATA[SELECT pac FROM PatientEN as pac inner join pac.Location as loc WHERE (pac.Gender =  :p_gender AND loc.Identifier = :p_location)]]></query>
+		  <query name="PatientENgetPatientsByBirthInterval_LocationHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByActive_LocationHQL"><![CDATA[SELECT pac FROM PatientEN as pac inner join pac.Location as loc WHERE (pac.Active = :p_active AND loc.Identifier = :p_location)]]></query>
+		  <query name="PatientENgetPatientsByName_Surnames_LocationHQL"><![CDATA[SELECT pac FROM PatientEN as pac inner join pac.Location as loc WHERE (pac.Name LIKE ('%' + :p_name+ '%') AND loc.Identifier = :p_location) ]]></query>
+		  <query name="PatientENgetPatientByNifHQL"><![CDATA[FROM PatientEN as pac WHERE pac.Nif = :p_nif ]]></query>
+		  <query name="PatientENgetPatientsByGender_MaritalStatusHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByBirthInterval_GenderHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByConditionCodeHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByPractitionerNifHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByRelatedPersonNifHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByBirthIntervalHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByNameSurnamesHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByName_Surnames_BirthDateHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsBySurnamesHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByPhoneHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByEmailHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByDeseasedHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByEncounterHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByConditionCodeCodeHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByConditionCodeDisplayHQL"><![CDATA[FROM PatientEN]]></query>
+		  <query name="PatientENgetPatientsByLocationHQL"><![CDATA[SELECT pat FROM PatientEN as pat inner join pat.Location as loc where loc.Identifier = :p_location]]></query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="RelatedPersonEN" table="RelatedPerson"> 
+				  	
+						<id name="Identifier" column="identifierRelatedPerson" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nif" type="string"> 
+						<column name="nif"  not-null="true"/>
+					</property>
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Surnames" type="string"> 
+						<column name="surnames"  not-null="true"/>
+					</property>
+					<property name="Gender" > 
+						<column name="gender"  not-null="true"/>
+					</property>
+					<property name="BirthDate" type="date"> 
+						<column name="birthDate"  not-null="true"/>
+					</property>
+					<property name="Address" type="string"> 
+						<column name="address"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  not-null="true"/>
+					</property>
+					<property name="Phone" type="string"> 
+						<column name="phone"  not-null="true"/>
+					</property>
+					<property name="Photo" type="string"> 
+						<column name="photo"  not-null="true"/>
+					</property>
+					<property name="StartDate" type="date"> 
+						<column name="startDate"  not-null="true"/>
+					</property>
+					<property name="EndDate" type="date"> 
+						<column name="endDate"  not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+					<property name="Active" type="boolean"> 
+						<column name="active"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Patient" table="[relatedPerson_patient]"  >
+							<key>
+								
+									<column name="FK_identifierRelatedPerson_idRelatedPerson"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.PatientEN">
+									<column name="FK_identifierPatient_idPatient"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+						<bag name="Conversation" >
+							<key>
+							
+								
+								<column name="FK_identifierRelatedPerson_idRelatedPerson"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ConversationEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Reclamation" >
+							<key>
+							
+								
+								<column name="FK_identifierRelatedPerson_idRelatedPerson"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ReclamationEN"/>
+					    </bag>
+					
+			
+			
+		  			
+						<bag name="AssessmentPractitioner" >
+							<key>
+							
+								
+								<column name="FK_identifierRelatedPerson_idRelatedPerson"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.AssessmentEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="RelatedPersonENReadAllHQL">from RelatedPersonEN</query>
+		  <query name="RelatedPersonENgetRelatedPersonsByRelationshipHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByGenderHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByName_SurnamesHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByName_Surnames_BirthDateHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonByNifHQL"><![CDATA[FROM RelatedPersonEN as rel WHERE rel.Nif = :p_nif]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonByPatientNifHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByPatientSurnamesHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByPatientName_SurnamesHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsBySurnamesHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByPatientNif_IntervalHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByPatientNif_ActiveHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByPhoneHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		  <query name="RelatedPersonENgetRelatedPersonsByEmailHQL"><![CDATA[FROM RelatedPersonEN]]></query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,14 @@
+﻿
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Assets/js/jquery.backstretch.min.js"></script>
+<script src="~/Assets/js/scripts.js"></script>
+<script type="text/javascript">
+     $(document).ready(function () {
+     $("#botonera-idioma button").click(function () {
+        window.location="@Url.Action("idioma", "Home")?lang=" + $(this).attr("lang") + "&returnUrl=@this.Request.RawUrl";
+     });
+     });
+</script>

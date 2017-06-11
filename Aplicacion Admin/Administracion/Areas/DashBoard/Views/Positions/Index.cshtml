@@ -1,0 +1,232 @@
+﻿@model IEnumerable<Administracion.Areas.DashBoard.Models.Position>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+@using (Html.BeginForm("Index", "Positions", FormMethod.Post, new { enctype = "multipart/form-data", id="form1" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="hdnOrden" id="hdnOrden" value="N" />
+}
+   
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">@Administracion.Resources.textos.botonPos</h1>
+
+            @if (TempData["resultado"] != null && TempData["resultado"].ToString() != "")
+            {
+                string estilo = "info";
+                if (TempData["ok"] != null && TempData["ok"].ToString() != "")
+                {
+                    estilo = TempData["ok"].ToString();
+                }
+                <div class="alert alert-@estilo div-hidden">@TempData["resultado"]</div>
+                TempData["resultado"] = "";
+                TempData["ok"] = "";
+            }
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading th-color">@Administracion.Resources.textos.locList</div>
+
+                
+
+                <div class="panel-body">
+
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                        <input type="text" class="form-control" id="search" placeholder="  @Administracion.Resources.textos.filtrado">
+                    </div>
+
+                    <table data-toggle="table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.ActionLink(Html.DisplayNameFor(model => model.latitude).ToHtmlString(), "Index", null, new{id = "linkLatitud"})
+                                </th>
+                                <th>
+                                    @Html.ActionLink(Html.DisplayNameFor(model => model.longitude).ToHtmlString(), "Index", null, new { id = "linkLongitud" })
+                                </th>
+                                <th>
+                                    @Html.ActionLink(Html.DisplayNameFor(model => model.altitude).ToHtmlString(), "Index", null, new { id = "linkAltitud" })
+                  
+                                </th>
+                                <th>
+                                    @Administracion.Resources.textos.detalles
+                                </th>
+                                <th>
+                                    @Administracion.Resources.textos.editar
+                                </th>
+                                <th>
+                                    @Administracion.Resources.textos.borrar
+                                </th>
+                            </tr>
+                        </thead>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.latitude)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.longitude)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.altitude)
+                                    </td>
+                                    <td>
+                                        <p data-placement="top" data-toggle="tooltip" title="Detalle"> <button id="btn-detalle-@item.identifier" data-id="@item.identifier" title="Acceder a los detalles de la posición @item.identifier" class="btn btn-info btn-xs"> <span> <i class="fa fa-info fa-fw" aria-hidden="true"></i></span></button></p>
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Positions", new { id = item.identifier })" class="btn btn-warning btn-xs">
+                                            <span> <i class="fa fa-pencil fa-fw" aria-hidden="true"></i></span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <p data-placement="top" data-toggle="tooltip" title="Borrar"> <button id="btn-borrar-@item.identifier" data-id="@item.identifier" title="Borrar la posición @item.identifier" class="btn btn-danger btn-xs"> <span> <i class="fa fa-trash fa-fw" aria-hidden="true"></i></span></button></p>
+                                    </td>
+                                </tr>
+                            }
+
+                    </table>
+
+                    <p>
+                        <a href="@Url.Action("Create", "Positions")" class="btn btn-success btn-sm">
+                            <span> <i class="fa fa-plus fa-fw" aria-hidden="true"></i></span>
+                        </a>
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-detalle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 id="titulo-detalle" class="modal-title"></h4>
+            </div>
+            <div class="modal-body" id="contenido-detalle">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-eliminar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">¡Atención!</h4>
+            </div>
+            <div class="modal-body">
+                <p>Se dispone a eliminar una posición, ¿Está seguro?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button id="btn-eliminar-modal" type="button" class="btn btn-primary">Sí</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+@section scripts {
+
+    
+    <script>
+        //Busqueda
+        $("#search").keyup(function () {
+            var value = this.value.toLowerCase().trim();
+
+            $("table tr").each(function (index) {
+                if (!index) return;
+                $(this).find("td").each(function () {
+                    var id = $(this).text().toLowerCase().trim();
+                    var not_found = (id.indexOf(value) == -1);
+                    $(this).closest('tr').toggle(!not_found);
+                    return not_found;
+                });
+            });
+        });
+    </script>
+
+    <script>
+        //Vista detalle
+        $(document).ready(function () {
+            $("button[id^='btn-detalle-']").click(function () {
+                var url = "@Url.Action("Details")";
+                var elId = $(this).data("id");
+                $.post(url, {id : elId})
+                .done(function (data) {
+                    $("#titulo-detalle").html(data.titulo);
+                    $("#contenido-detalle").html(data.contenido);
+                    $("#modal-detalle").modal("show");
+                })
+                .fail(function (data) {
+                    $("#titulo-detalle").html(data.titulo);
+                    $("#contenido-detalle").html(data.contenido);
+                    $("#modal-detalle").modal("show");
+                });
+            });
+        });
+    </script>
+
+    <script>
+            //Vista borrado
+            $(document).ready(function () {
+                $("button[id^='btn-borrar-']").click(function () {
+                    var botonEliminar = $(this);
+                    $("#modal-eliminar").modal("show");
+                    $("#btn-eliminar-modal").unbind("click");
+                    $("#btn-eliminar-modal").click(function () {
+                        window.location="@Url.Action("Delete")/" + botonEliminar.data("id");
+                    });
+                });
+            });
+    </script>
+
+    <script>
+            //Ocultar mensajes
+            $(document).ready(function () {
+                $(".div-hidden").fadeOut(3000);
+            });
+    </script>
+
+    <script>
+            $("#linkLatitud").click(function (event) {
+                event.preventDefault();
+                $("#hdnOrden").val("N");
+                $("#form1").submit();
+            });
+            $("#linkLongitud").click(function (event) {
+                event.preventDefault();
+                $("#hdnOrden").val("P");
+                $("#form1").submit();
+            });
+            $("#linkAltitud").click(function (event) {
+                event.preventDefault();
+                $("#hdnOrden").val("Q");
+                $("#form1").submit();
+            });
+    </script>
+
+
+
+}

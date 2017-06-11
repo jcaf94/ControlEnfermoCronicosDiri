@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="ObservationEN" table="Observation"> 
+				  	
+						<id name="Identifier" column="identifierObservation" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="MeasureType" > 
+						<column name="measureType"  not-null="true"/>
+					</property>
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="DateEntry" type="date"> 
+						<column name="dateEntry"  not-null="true"/>
+					</property>
+					<property name="Note" type="string"> 
+						<column name="note"  not-null="true"/>
+					</property>
+					<property name="DateAdded" type="date"> 
+						<column name="dateAdded"  not-null="true"/>
+					</property>
+					<property name="DateObservation" type="date"> 
+						<column name="dateObservation"  not-null="true"/>
+					</property>
+					<property name="Category" > 
+						<column name="category"  not-null="true"/>
+					</property>
+					<property name="Grade" > 
+						<column name="grade"  not-null="true"/>
+					</property>
+					<property name="Value1" type="double"> 
+						<column name="value1"  not-null="true"/>
+					</property>
+					<property name="Value2" type="double"> 
+						<column name="value2"  not-null="true"/>
+					</property>
+					<property name="PersonOID" type="integer"> 
+						<column name="personOID"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Diary" class="ChroniGenNHibernate.EN.Chroni.DiaryEN" >	
+								<column name="FK_identifierDiary_idDiary"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+			
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ObservationENReadAllHQL">from ObservationEN</query>
+		  <query name="ObservationENgetObservationsByCategory_IntervalHQL"><![CDATA[FROM ObservationEN]]></query>
+		  <query name="ObservationENgetObservationsByMesureType_Value1HQL"><![CDATA[FROM ObservationEN]]></query>
+		  <query name="ObservationENgetObservationsByMesureType_Value2HQL"><![CDATA[FROM ObservationEN]]></query>
+		  <query name="ObservationENgetObservationsByName_IntervalHQL"><![CDATA[FROM ObservationEN]]></query>
+		  <query name="ObservationENgetObservationsByIntervalHQL"><![CDATA[FROM ObservationEN]]></query>
+		</hibernate-mapping>
+	

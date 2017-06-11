@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="ConversationEN" table="Conversation"> 
+				  	
+						<id name="Identifier" column="identifierConversation" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="StartDate" type="date"> 
+						<column name="startDate"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Message" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_identifierConversation_idConversation"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.MessageEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Patient" class="ChroniGenNHibernate.EN.Chroni.PatientEN" >	
+								<column name="FK_identifierPatient_idPatient"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Practitioner" class="ChroniGenNHibernate.EN.Chroni.PractitionerEN" >	
+								<column name="FK_identifierPractitioner_idPracticioner"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="RelatedPerson" class="ChroniGenNHibernate.EN.Chroni.RelatedPersonEN" >	
+								<column name="FK_identifierRelatedPerson_idRelatedPerson"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ConversationENReadAllHQL">from ConversationEN</query>
+		  <query name="ConversationENgetConversationByPatientHQL"><![CDATA[FROM ConversationEN]]></query>
+		  <query name="ConversationENgetConversationByPractitionerHQL"><![CDATA[FROM ConversationEN]]></query>
+		  <query name="ConversationENgetConversationByRelatedPersonHQL"><![CDATA[FROM ConversationEN]]></query>
+		  <query name="ConversationENgetConversationByPatientNifHQL"><![CDATA[FROM ConversationEN]]></query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="RelationshipEN" table="Relationship"> 
+				  	
+						<id name="Identifier" column="identifierRelationship" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Relationship" > 
+						<column name="relationship"  not-null="true"/>
+					</property>
+					<property name="PatientOID" type="integer"> 
+						<column name="patientOID"  not-null="true"/>
+					</property>
+					<property name="RelatedPersonOID" type="integer"> 
+						<column name="relatedPersonOID"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="RelationshipENReadAllHQL">from RelationshipEN</query>
+		  <query name="RelationshipENgetRelationshipByPatientHQL"><![CDATA[FROM RelationshipEN]]></query>
+		  <query name="RelationshipENgetRelationshipByRelatedPersonHQL"><![CDATA[FROM RelationshipEN]]></query>
+		</hibernate-mapping>
+	

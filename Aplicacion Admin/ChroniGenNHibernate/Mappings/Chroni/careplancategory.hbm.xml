@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="CarePlanCategoryEN" table="CarePlanCategory"> 
+				  	
+						<id name="Identifier" column="identifierCarePlanCategory" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Code" type="string"> 
+						<column name="code"  not-null="true"/>
+					</property>
+					<property name="Display" type="string"> 
+						<column name="display"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="CarePlan" table="[carePlan_carePlanCategory]" inverse="true" >
+							<key>
+								
+									<column name="FK_identifierCarePlanCategory_idCarePlanCategory"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.CarePlanEN">
+									<column name="FK_identifierCarePlan_idCarePlan"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CarePlanCategoryENReadAllHQL">from CarePlanCategoryEN</query>
+		  <query name="CarePlanCategoryENGetCarePlanCategoryByCodeHQL"><![CDATA[FROM CarePlanCategoryEN]]></query>
+		  <query name="CarePlanCategoryENGetCarePlanCategoryByDisplayHQL"><![CDATA[FROM CarePlanCategoryEN]]></query>
+		</hibernate-mapping>
+	

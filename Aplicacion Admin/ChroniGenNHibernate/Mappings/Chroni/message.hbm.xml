@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="MessageEN" table="Message"> 
+				  	
+						<id name="Identifier" column="identifierMessage" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Date" type="date"> 
+						<column name="date"  not-null="true"/>
+					</property>
+					<property name="Content" type="string"> 
+						<column name="content"  not-null="true"/>
+					</property>
+					<property name="IsRead" type="boolean"> 
+						<column name="isRead"  not-null="true"/>
+					</property>
+					<property name="Attachment" type="string"> 
+						<column name="attachment"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Conversation" class="ChroniGenNHibernate.EN.Chroni.ConversationEN" >	
+								<column name="FK_identifierConversation_idConversation"/> 
+						</many-to-one>
+											 					
+			
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="MessageENReadAllHQL">from MessageEN</query>
+		  <query name="MessageENgetMessagesByConversation_isReadHQL"><![CDATA[FROM MessageEN]]></query>
+		  <query name="MessageENgetMessagesByConversation_IntervalHQL"><![CDATA[FROM MessageEN]]></query>
+		  <query name="MessageENgetMessagesByConversationHQL"><![CDATA[FROM MessageEN]]></query>
+		</hibernate-mapping>
+	

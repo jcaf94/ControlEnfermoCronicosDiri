@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="IngredientEN" table="Ingredient"> 
+				  	
+						<id name="Identifier" column="identifierIngredient" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Amount" type="string"> 
+						<column name="amount"  not-null="true"/>
+					</property>
+					<property name="IsActive" type="boolean"> 
+						<column name="isActive"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Medication" table="[ingredient_medication]"  >
+							<key>
+								
+									<column name="FK_identifierIngredient_idIngredient"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.MedicationEN">
+									<column name="FK_identifierMedication_idMedication"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+						<many-to-one name="SubstanceCode" class="ChroniGenNHibernate.EN.Chroni.SubstanceCodeEN" >	
+								<column name="FK_identifierSubstanceCode_idSubstanceCode"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="IngredientENReadAllHQL">from IngredientEN</query>
+		  <query name="IngredientENgetIngredientsByIsActiveHQL"><![CDATA[FROM IngredientEN]]></query>
+		  <query name="IngredientENgetIngredientsByMedicationNameHQL"><![CDATA[FROM IngredientEN]]></query>
+		</hibernate-mapping>
+	

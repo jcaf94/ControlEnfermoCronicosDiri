@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="LocationEN" table="Location"> 
+				  	
+						<id name="Identifier" column="identifierLocation" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Status" > 
+						<column name="status"  not-null="true"/>
+					</property>
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="Mode" > 
+						<column name="mode"  not-null="true"/>
+					</property>
+					<property name="Type" > 
+						<column name="type"  not-null="true"/>
+					</property>
+					<property name="Address" type="string"> 
+						<column name="address"  not-null="true"/>
+					</property>
+					<property name="PhysicalType" > 
+						<column name="physicalType"  not-null="true"/>
+					</property>
+					<property name="ManagingOrganization" type="string"> 
+						<column name="managingOrganization"  not-null="true"/>
+					</property>
+					<property name="Phone" type="string"> 
+						<column name="phone"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  not-null="true"/>
+					</property>
+					<property name="PostalCode" type="string"> 
+						<column name="postalCode"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+					
+							<many-to-one name="Position" class="ChroniGenNHibernate.EN.Chroni.PositionEN" >
+								<column name="FK_identifierPosition_idPosition"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+						<bag name="Practitioner" table="[practicioner_location]" inverse="true" >
+							<key>
+								
+									<column name="FK_identifierLocation_idLocation"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.PractitionerEN">
+									<column name="FK_identifierPractitioner_idPracticioner"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Patient" table="[location_patient]"  >
+							<key>
+								
+									<column name="FK_identifierLocation_idLocation"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.PatientEN">
+									<column name="FK_identifierPatient_idPatient"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+			
+			
+		  			
+						<bag name="Schedule" >
+							<key>
+							
+								
+								<column name="FK_identifierLocation_idLocation"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ScheduleEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="LocationENReadAllHQL">from LocationEN</query>
+		  <query name="LocationENgetLocationsByTypeHQL"><![CDATA[FROM LocationEN]]></query>
+		  <query name="LocationENgetLocationsByType_StatusHQL"><![CDATA[FROM LocationEN]]></query>
+		  <query name="LocationENgetLocationsByPostalCodeHQL"><![CDATA[FROM LocationEN]]></query>
+		  <query name="LocationENgetLocationsByPractitionerHQL"><![CDATA[FROM LocationEN]]></query>
+		  <query name="LocationENgetLocationsByPatientHQL"><![CDATA[FROM LocationEN]]></query>
+		  <query name="LocationENgetLocationsByPhysicalTypeHQL"><![CDATA[FROM LocationEN]]></query>
+		  <query name="LocationENgetLocationsByPatientNifHQL"><![CDATA[FROM LocationEN]]></query>
+		  <query name="LocationENgetLocationsByPatientSurnamesHQL"><![CDATA[FROM LocationEN]]></query>
+		  <query name="LocationENgetLocationByPositionHQL"><![CDATA[FROM LocationEN]]></query>
+		</hibernate-mapping>
+	

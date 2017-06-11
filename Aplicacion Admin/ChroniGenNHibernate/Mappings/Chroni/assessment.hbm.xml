@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="AssessmentEN" table="Assessment"> 
+				  	
+						<id name="Identifier" column="identifierAssessment" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Rating" type="integer"> 
+						<column name="rating"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Practitioner" class="ChroniGenNHibernate.EN.Chroni.PractitionerEN" >	
+								<column name="FK_identifierPractitioner_idPractitioner"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Patient" class="ChroniGenNHibernate.EN.Chroni.PatientEN" >	
+								<column name="FK_identifierPatient_idPatient"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="RelatedPerson" class="ChroniGenNHibernate.EN.Chroni.RelatedPersonEN" >	
+								<column name="FK_identifierRelatedPerson_idRelatedPerson"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="AssessmentENReadAllHQL">from AssessmentEN</query>
+		  <query name="AssessmentENgetAverageByPractitionerRoleHQL"><![CDATA[FROM AssessmentEN]]></query>
+		</hibernate-mapping>
+	

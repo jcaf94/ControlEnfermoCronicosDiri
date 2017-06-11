@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="MedicationEN" table="Medication"> 
+				  	
+						<id name="Identifier" column="identifierMedication" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Manufacturer" type="string"> 
+						<column name="manufacturer"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="Form" > 
+						<column name="form"  not-null="true"/>
+					</property>
+					<property name="Rate" type="double"> 
+						<column name="rate"  not-null="true"/>
+					</property>
+					<property name="Dosage" type="string"> 
+						<column name="dosage"  not-null="true"/>
+					</property>
+					<property name="Status" > 
+						<column name="status"  not-null="true"/>
+					</property>
+					<property name="IsOverTheCounter" type="boolean"> 
+						<column name="isOverTheCounter"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Ingredient" table="[ingredient_medication]" inverse="true" cascade="delete">
+							<key>
+								
+									<column name="FK_identifierMedication_idMedication"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.IngredientEN">
+									<column name="FK_identifierIngredient_idIngredient"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Activity" table="[activity_medication]" inverse="true" >
+							<key>
+								
+									<column name="FK_identifierMedication_idMedication"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.ActivityEN">
+									<column name="FK_identifierActivity_idActivity"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="MedicationENReadAllHQL">from MedicationEN</query>
+		  <query name="MedicationENgetMedicationsBySubstanceCodeCodeHQL"><![CDATA[FROM MedicationEN]]></query>
+		  <query name="MedicationENgetMedicationsByIngredients_FormHQL"><![CDATA[FROM MedicationEN]]></query>
+		  <query name="MedicationENgetMedicationsByIngredients_Form_OverTheCounterHQL"><![CDATA[FROM MedicationEN]]></query>
+		  <query name="MedicationENgetMedicationsByIngredients_Form_ManufacturerHQL"><![CDATA[FROM MedicationEN]]></query>
+		  <query name="MedicationENgetMedicationsByActivityHQL"><![CDATA[FROM MedicationEN]]></query>
+		  <query name="MedicationENgetMedicationsByPatientHQL"><![CDATA[FROM MedicationEN]]></query>
+		  <query name="MedicationENgetMedicationsByPatientNifHQL"><![CDATA[FROM MedicationEN]]></query>
+		  <query name="MedicationENgetMedicationsBySubstanceCodeDisplayHQL"><![CDATA[FROM MedicationEN]]></query>
+		</hibernate-mapping>
+	

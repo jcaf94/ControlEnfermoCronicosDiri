@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="ReclamationResponseEN" table="ReclamationResponse"> 
+				  	
+						<id name="Identifier" column="identifierReclamationResponse" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Response" type="string"> 
+						<column name="response"  not-null="true"/>
+					</property>
+					<property name="ActionState" > 
+						<column name="actionState"  not-null="true"/>
+					</property>
+					<property name="CreatedDate" type="date"> 
+						<column name="createdDate"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+					
+							   <one-to-one name="Reclamation" class="ChroniGenNHibernate.EN.Chroni.ReclamationEN" property-ref="ReclamationResponse" />							
+					 
+						
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ReclamationResponseENReadAllHQL">from ReclamationResponseEN</query>
+		  <query name="ReclamationResponseENgetReclamationResponsesByIntervalHQL"><![CDATA[FROM ReclamationResponseEN]]></query>
+		  <query name="ReclamationResponseENgetReclamationResponsesByActionState_IntervalHQL"><![CDATA[FROM ReclamationResponseEN]]></query>
+		  <query name="ReclamationResponseENgetReclamationResponseByReclamationHQL"><![CDATA[FROM ReclamationResponseEN]]></query>
+		</hibernate-mapping>
+	

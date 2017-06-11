@@ -1,0 +1,41 @@
+﻿@using System.Web.Mvc.Html
+
+@helper Menu(System.Web.Mvc.HtmlHelper Html, System.Web.Mvc.UrlHelper url, string option = "inicio")
+{
+    <ul class="nav menu">
+        <li @Html.Raw(option == "inicio" ? "class='active'" : "")> <a href="@url.Action("Index", "DashBoard", new { Area = "DashBoard" })"><i class="fa fa-tachometer fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonDash</a></li>
+
+        <li role="presentation" class="divider"></li>
+        
+        <li @Html.Raw(option == "Positions" ? "class='active'" : "")> <a href="@url.Action("Index", "Positions", new { Area = "DashBoard" })"><i class="fa fa-globe fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonPos</a></li>
+        <li @Html.Raw(option == "Locations" ? "class='active'" : "")> <a href="@url.Action("Index", "Locations", new { Area = "DashBoard" })"><i class="fa fa-hospital-o fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonLoc </a></li>
+        <li @Html.Raw(option == "Practitioners" ? "class='active'" : "")><a href="@url.Action("Index", "Practitioners", new { Area = "DashBoard" })"><i class="fa fa-user-md fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonPrac </a></li>
+        
+    </ul>
+}
+
+@helper NavGen(System.Web.Mvc.HtmlHelper Html, System.Web.Mvc.UrlHelper url)
+{
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>CroniCall</span> Admin</a>
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Admin <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@url.Action("Index", "Home", new { Area = "" })"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> @Administracion.Resources.textos.logOut </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="DiaryEN" table="Diary"> 
+				  	
+						<id name="Identifier" column="identifierDiary" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+			
+			
+			
+		  			
+						<bag name="Observation" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_identifierDiary_idDiary"/>
+					      	</key>
+							<one-to-many class="ChroniGenNHibernate.EN.Chroni.ObservationEN"/>
+					    </bag>
+					
+			
+		  			
+					
+							   <one-to-one name="Patient" class="ChroniGenNHibernate.EN.Chroni.PatientEN" property-ref="Diary" />							
+					 
+						
+			
+		  			
+						<bag name="Practitioner" table="[practicioner_diary]" inverse="true" >
+							<key>
+								
+									<column name="FK_identifierDiary_idDiary"/> 
+							</key>
+      						<many-to-many class="ChroniGenNHibernate.EN.Chroni.PractitionerEN">
+									<column name="FK_identifierPractitioner_idPracticioner"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="DiaryENReadAllHQL">from DiaryEN</query>
+		  <query name="DiaryENgetDiariesByPractitionerHQL"><![CDATA[FROM DiaryEN]]></query>
+		  <query name="DiaryENgetDiariesByPractitionerNifHQL"><![CDATA[FROM DiaryEN]]></query>
+		  <query name="DiaryENgetDiariesByPractitionerSurnamesHQL"><![CDATA[FROM DiaryEN]]></query>
+		  <query name="DiaryENgetDiaryByPatientHQL"><![CDATA[FROM DiaryEN]]></query>
+		  <query name="DiaryENgetDiaryByPatientNifHQL"><![CDATA[FROM DiaryEN]]></query>
+		  <query name="DiaryENgetDiaryByPatientSurnamesHQL"><![CDATA[FROM DiaryEN]]></query>
+		</hibernate-mapping>
+	

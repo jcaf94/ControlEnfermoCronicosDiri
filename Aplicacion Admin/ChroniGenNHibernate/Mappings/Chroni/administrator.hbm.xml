@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ChroniGenNHibernate"
+		                   namespace="ChroniGenNHibernate.EN.Chroni">
+		    
+		    
+			
+				<class name="AdministratorEN" table="Administrator"> 
+				  	
+						<id name="Identifier" column="identifierAdministrator" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Gender" > 
+						<column name="gender"  not-null="true"/>
+					</property>
+					<property name="BirthDate" type="date"> 
+						<column name="birthDate"  not-null="true"/>
+					</property>
+					<property name="Photo" type="string"> 
+						<column name="photo"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+					<property name="Surnames" type="string"> 
+						<column name="surnames"  not-null="true"/>
+					</property>
+					<property name="Nif" type="string"> 
+						<column name="nif"  not-null="true"/>
+					</property>
+					<property name="Address" type="string"> 
+						<column name="address"  not-null="true"/>
+					</property>
+					<property name="Phone" type="string"> 
+						<column name="phone"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="AdministratorENReadAllHQL">from AdministratorEN</query>
+		  <query name="AdministratorENgetAdministratorByNifHQL"><![CDATA[FROM AdministratorEN adm WHERE adm.Nif = :p_nif]]></query>
+		  <query name="AdministratorENgetAdministratorsBySurnamesHQL"><![CDATA[FROM AdministratorEN]]></query>
+		  <query name="AdministratorENgetAdministratorsByNames_SurnamesHQL"><![CDATA[FROM AdministratorEN]]></query>
+		  <query name="AdministratorENgetAdministratorsByPhoneHQL"><![CDATA[FROM AdministratorEN]]></query>
+		  <query name="AdministratorENgetAdministratorsByEmailHQL"><![CDATA[FROM AdministratorEN]]></query>
+		</hibernate-mapping>
+	
