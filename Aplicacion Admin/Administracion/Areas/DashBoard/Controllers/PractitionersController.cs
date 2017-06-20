@@ -39,7 +39,7 @@ namespace Administracion.Areas.DashBoard.Controllers
                     }
                     else
                     {
-                        prac.DescripcionEsp = "Sin especialidad asignada";
+                        prac.DescripcionEsp = Resources.textos.modelEmpty;
                     }
                 }
 
@@ -47,7 +47,7 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
             catch (Exception ex)
             {
-                TempData["resultado"] = "No existen locations que mostrar.";
+                TempData["resultado"] = Resources.textos.modelEmpty;
                 TempData["ok"] = "warning";
             }
 
@@ -79,7 +79,7 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
             else
             {
-                specialidad = "No tiene especialidad asignada";
+                specialidad = Resources.textos.modelEmpty;
             }
 
             Dictionary<string, string> res = new Dictionary<string, string>();
@@ -88,12 +88,12 @@ namespace Administracion.Areas.DashBoard.Controllers
             {
 
                 resultado = "<ul><li><strong>Id: </strong>" + locEN.Identifier + "</li><li><strong>Nombre: </strong>" + locEN.Name + "</li><li><strong>Teléfono: </strong>" + locEN.Phone + "</li><li><strong>Email: </strong>" + locEN.Email + "</li> <li><strong>Especialidad: </strong>" + specialidad + "</li> <li><strong>Dirección: </strong>" + locEN.Address + "</li></ul>";
-                res.Add("titulo", "Detalles del practitioner ");
+                res.Add("titulo", Resources.textos.detailsModal);
             }
             else
             {
-                resultado = "<p>Error obteniendo los detalles del practitioner: " + id.ToString() + "</p>";
-                res.Add("titulo", "Atención!");
+                resultado = "<p>" + Resources.textos.errorDataModal + " " + id.ToString() + "</p>";
+                res.Add("titulo", Resources.textos.modalTitulo);
             }
 
             res.Add("contenido", resultado);
@@ -151,11 +151,11 @@ namespace Administracion.Areas.DashBoard.Controllers
                 }
 
                 SessionClose();
-                
 
-                TempData["resultado"] = "Practitioner creado correctamente.";
+
+                TempData["resultado"] = Resources.textos.createOK;
                 TempData["ok"] = "success";
-                
+
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -187,7 +187,7 @@ namespace Administracion.Areas.DashBoard.Controllers
                 loc = new AssemblerPractitioner().ConvertENToModelUI(locationEN);
 
                 speEn.Identifier = 0;
-                speEn.Display = "Ninguna especialidad";
+                speEn.Display = Administracion.Resources.textos.errorKO;
 
                 IList<SpecialtyEN> especialidadesBD = speCen.ReadAll(0, -1);
                 especialidadesBD.Insert(0, speEn);
@@ -199,7 +199,7 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.error = "Error, causa: " + ex.Message;
+                ViewBag.error = "Error" + ex.Message;
             }
             return View(loc);
         }
@@ -243,7 +243,7 @@ namespace Administracion.Areas.DashBoard.Controllers
 
                 cen.Modify(positionEN.Identifier, positionEN.Nif, positionEN.Active, positionEN.Role, positionEN.Name, positionEN.Surnames, positionEN.Gender, positionEN.BirthDate, positionEN.Address, positionEN.Email, positionEN.Phone, positionEN.Photo, positionEN.StartDate, positionEN.EndDate, positionEN.Password);
 
-                TempData["resultado"] = "Practitioner modificada correctamente.";
+                TempData["resultado"] = Resources.textos.editOK;
                 TempData["ok"] = "success";
 
                 return RedirectToAction("Index");
@@ -275,12 +275,12 @@ namespace Administracion.Areas.DashBoard.Controllers
 
             if (pos == null)
             {
-                TempData["resultado"] = "Practitioner eliminado correctamente";
+                TempData["resultado"] = Resources.textos.deleteOK;
                 TempData["ok"] = "success";
             }
             else
             {
-                TempData["resultado"] = "Error al eliminar el practitioner, pruébelo más tarde";
+                TempData["resultado"] = Resources.textos.errorKO;
                 TempData["ok"] = "danger";
             }
 

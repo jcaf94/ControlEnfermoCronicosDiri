@@ -22,5 +22,11 @@
 		})
 		$(window).on('resize', function () {
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
-		})
+        })
+
+        $(document).ready(function () {
+         $("#botonera-idioma button").click(function () {
+            window.location="@Url.Action("idioma", "DashBoard")?lang=" + $(this).attr("lang") + "&returnUrl=@this.Request.RawUrl";
+         });
+         });
 </script>

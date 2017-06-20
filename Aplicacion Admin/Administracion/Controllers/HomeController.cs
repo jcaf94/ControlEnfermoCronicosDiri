@@ -58,10 +58,15 @@ namespace Administracion.Controllers
                         }
                     }
                 }
+
+                TempData["error"] = Resources.textos.errorLoginAcceso;
+                TempData["ok"] = "danger";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                TempData["error"] = Resources.textos.errorLoginGeneric + ex.Message ;
+                TempData["ok"] = "danger";
                 return RedirectToAction("Index");
             }
         }

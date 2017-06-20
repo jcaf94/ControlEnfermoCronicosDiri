@@ -1,898 +1,417 @@
-<?xml version="1.0" encoding="utf-8"?>
-		<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-		  <PropertyGroup>
-		    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		    <ProductVersion>8.0.30703</ProductVersion>
-		    <SchemaVersion>2.0</SchemaVersion>
-		    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
-		    <OutputType>Library</OutputType>
-		    <AppDesignerFolder>Properties</AppDesignerFolder>
-		    <RootNamespace>ChroniGenNHibernate</RootNamespace>
-		    <AssemblyName>ChroniGenNHibernate</AssemblyName>
-		    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-		    <FileAlignment>512</FileAlignment>
-		    <PublishUrl>publish\</PublishUrl>
-		    <Install>true</Install>
-		    <InstallFrom>Disk</InstallFrom>
-		    <UpdateEnabled>false</UpdateEnabled>
-		    <UpdateMode>Foreground</UpdateMode>
-		    <UpdateInterval>7</UpdateInterval>
-		    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-		    <UpdatePeriodically>false</UpdatePeriodically>
-		    <UpdateRequired>false</UpdateRequired>
-		    <MapFileExtensions>true</MapFileExtensions>
-		    <ApplicationRevision>0</ApplicationRevision>
-		    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-		    <IsWebBootstrapper>false</IsWebBootstrapper>
-		    <UseApplicationTrust>false</UseApplicationTrust>
-		    <BootstrapperEnabled>true</BootstrapperEnabled>
-		  </PropertyGroup>
-		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		    <DebugSymbols>true</DebugSymbols>
-		    <DebugType>full</DebugType>
-		    <Optimize>false</Optimize>
-		    <OutputPath>bin\Debug\</OutputPath>
-		    <DefineConstants>DEBUG;TRACE</DefineConstants>
-		    <ErrorReport>prompt</ErrorReport>
-		    <WarningLevel>4</WarningLevel>
-		  </PropertyGroup>
-		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		    <DebugType>pdbonly</DebugType>
-		    <Optimize>true</Optimize>
-		    <OutputPath>bin\Release\</OutputPath>
-		    <DefineConstants>TRACE</DefineConstants>
-		    <ErrorReport>prompt</ErrorReport>
-		    <WarningLevel>4</WarningLevel>
-		  </PropertyGroup>
-		<ItemGroup>
-		    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\ChroniGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
-		    </Reference>
-		    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\ChroniGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
-		    </Reference>
-		    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\ChroniGenNHibernate\AppLib\NHibernate.dll</HintPath>
-		    </Reference>
-		    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\ChroniGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
-		    </Reference>
-		    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\ChroniGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
-		    </Reference>
-		    <Reference Include="System" />
-		    <Reference Include="System.Core">
-		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-		    </Reference>
-		    
-		    <Reference Include="System.Transactions" />
-		    <Reference Include="System.Xml.Linq">
-		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-		    </Reference>
-		    <Reference Include="System.Data.DataSetExtensions">
-		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-		    </Reference>
-		    <Reference Include="System.Data" />
-		    <Reference Include="System.Xml" />
-		</ItemGroup>
-		
-		<ItemGroup>
-		    <Content Include="..\ChroniGenNHibernate\AppLib\Antlr3.Runtime.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\Iesi.Collections.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\log4net.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\NHibernate.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\nunit.core.dll" />
-		    <Content Include="..\ChroniGenNHibernate\AppLib\nunit.framework.dll" />
-  		</ItemGroup>
-  		
-		<ItemGroup>
-			<Compile Include="NHibernateHelper.cs" />
-		    <Compile Include="Utils\Util.cs" />
-		    <Compile Include="Exceptions\ModelException.cs"/>
-		    <Compile Include="Exceptions\DataLayerException.cs"/>
-		    
-	<Compile Include="CAD\BasicCAD.cs"/>
-	<Compile Include="CP\BasicCP.cs"/>
-	<Compile Include="EN\Chroni\LocationEN.cs" />
-	<Compile Include="CEN\Chroni\LocationCEN.cs" />
-	<Compile Include="CAD\Chroni\ILocationCAD.cs" />
-	<Compile Include="CAD\Chroni\LocationCAD.cs" />
-	<Compile Include="CP\Chroni\LocationCP.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\LocationCEN_SetStatus.cs" />
-			
-			<Compile Include="CEN\Chroni\LocationCEN_SetMode.cs" />
-			
-			<Compile Include="CEN\Chroni\LocationCEN_SetType.cs" />
-			
-			<Compile Include="CEN\Chroni\LocationCEN_SetPhysicalType.cs" />
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\LocationCEN_SetManagingOrganization.cs" />
-			
-			<Compile Include="CEN\Chroni\LocationCEN_SetPhone.cs" />
-			
-			<Compile Include="CEN\Chroni\LocationCEN_SetEmail.cs" />
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\PositionEN.cs" />
-	<Compile Include="CEN\Chroni\PositionCEN.cs" />
-	<Compile Include="CAD\Chroni\IPositionCAD.cs" />
-	<Compile Include="CAD\Chroni\PositionCAD.cs" />
-	<Compile Include="CP\Chroni\PositionCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\PractitionerEN.cs" />
-	<Compile Include="CEN\Chroni\PractitionerCEN.cs" />
-	<Compile Include="CAD\Chroni\IPractitionerCAD.cs" />
-	<Compile Include="CAD\Chroni\PractitionerCAD.cs" />
-	<Compile Include="CP\Chroni\PractitionerCP.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetGender.cs" />
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetRole.cs" />
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetActive.cs" />
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetEndDate.cs" />
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetPhoto.cs" />
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetAddress.cs" />
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetPhone.cs" />
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetEmail.cs" />
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_Login.cs" />
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_Logout.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\PractitionerCEN_SetPassword.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\DiaryEN.cs" />
-	<Compile Include="CEN\Chroni\DiaryCEN.cs" />
-	<Compile Include="CAD\Chroni\IDiaryCAD.cs" />
-	<Compile Include="CAD\Chroni\DiaryCAD.cs" />
-	<Compile Include="CP\Chroni\DiaryCP.cs" />
-			<Compile Include="CEN\Chroni\DiaryCEN_New_.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\ObservationEN.cs" />
-	<Compile Include="CEN\Chroni\ObservationCEN.cs" />
-	<Compile Include="CAD\Chroni\IObservationCAD.cs" />
-	<Compile Include="CAD\Chroni\ObservationCAD.cs" />
-	<Compile Include="CP\Chroni\ObservationCP.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\ObservationCEN_SetMeasureType.cs" />
-			
-			<Compile Include="CEN\Chroni\ObservationCEN_SetDateObservation.cs" />
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\ObservationCEN_SetSymptomGrade.cs" />
-			
-			<Compile Include="CEN\Chroni\ObservationCEN_SetValue1.cs" />
-			
-			<Compile Include="CEN\Chroni\ObservationCEN_SetValue2.cs" />
-			
-			<Compile Include="CEN\Chroni\ObservationCEN_SetNote.cs" />
-			
-	<Compile Include="EN\Chroni\PatientEN.cs" />
-	<Compile Include="CEN\Chroni\PatientCEN.cs" />
-	<Compile Include="CAD\Chroni\IPatientCAD.cs" />
-	<Compile Include="CAD\Chroni\PatientCAD.cs" />
-	<Compile Include="CP\Chroni\PatientCP.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetActive.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetDeceased.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetMaritalStatus.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetAddress.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetPhone.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetEmail.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_Login.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_Logout.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetPassword.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetName.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetSurnames.cs" />
-			
-			<Compile Include="CEN\Chroni\PatientCEN_SetBirthDate.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\RelatedPersonEN.cs" />
-	<Compile Include="CEN\Chroni\RelatedPersonCEN.cs" />
-	<Compile Include="CAD\Chroni\IRelatedPersonCAD.cs" />
-	<Compile Include="CAD\Chroni\RelatedPersonCAD.cs" />
-	<Compile Include="CP\Chroni\RelatedPersonCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\RelatedPersonCEN_SetPhoto.cs" />
-			
-			<Compile Include="CEN\Chroni\RelatedPersonCEN_SetEndDate.cs" />
-			
-			<Compile Include="CEN\Chroni\RelatedPersonCEN_SetPhone.cs" />
-			
-			<Compile Include="CEN\Chroni\RelatedPersonCEN_SetEmail.cs" />
-			
-			<Compile Include="CEN\Chroni\RelatedPersonCEN_SetAddress.cs" />
-			
-			<Compile Include="CEN\Chroni\RelatedPersonCEN_Login.cs" />
-			
-			<Compile Include="CEN\Chroni\RelatedPersonCEN_Logout.cs" />
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\RelatedPersonCEN_SetPassword.cs" />
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\EncounterEN.cs" />
-	<Compile Include="CEN\Chroni\EncounterCEN.cs" />
-	<Compile Include="CAD\Chroni\IEncounterCAD.cs" />
-	<Compile Include="CAD\Chroni\EncounterCAD.cs" />
-	<Compile Include="CP\Chroni\EncounterCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\EncounterCEN_SetPriority.cs" />
-			
-			<Compile Include="CEN\Chroni\EncounterCEN_SetStatus.cs" />
-			
-			
-			<Compile Include="CEN\Chroni\EncounterCEN_SetNote.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\ConditionEN.cs" />
-	<Compile Include="CEN\Chroni\ConditionCEN.cs" />
-	<Compile Include="CAD\Chroni\IConditionCAD.cs" />
-	<Compile Include="CAD\Chroni\ConditionCAD.cs" />
-	<Compile Include="CP\Chroni\ConditionCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\ConditionCEN_SetNote.cs" />
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\ConversationEN.cs" />
-	<Compile Include="CEN\Chroni\ConversationCEN.cs" />
-	<Compile Include="CAD\Chroni\IConversationCAD.cs" />
-	<Compile Include="CAD\Chroni\ConversationCAD.cs" />
-	<Compile Include="CP\Chroni\ConversationCP.cs" />
-			<Compile Include="CEN\Chroni\ConversationCEN_New_.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\MessageEN.cs" />
-	<Compile Include="CEN\Chroni\MessageCEN.cs" />
-	<Compile Include="CAD\Chroni\IMessageCAD.cs" />
-	<Compile Include="CAD\Chroni\MessageCAD.cs" />
-	<Compile Include="CP\Chroni\MessageCP.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\MessageCEN_SetIsRead.cs" />
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\ReclamationEN.cs" />
-	<Compile Include="CEN\Chroni\ReclamationCEN.cs" />
-	<Compile Include="CAD\Chroni\IReclamationCAD.cs" />
-	<Compile Include="CAD\Chroni\ReclamationCAD.cs" />
-	<Compile Include="CP\Chroni\ReclamationCP.cs" />
-			<Compile Include="CEN\Chroni\ReclamationCEN_New_.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\ReclamationCEN_SetResolved.cs" />
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\ReclamationCEN_SetNote.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\ReclamationResponseEN.cs" />
-	<Compile Include="CEN\Chroni\ReclamationResponseCEN.cs" />
-	<Compile Include="CAD\Chroni\IReclamationResponseCAD.cs" />
-	<Compile Include="CAD\Chroni\ReclamationResponseCAD.cs" />
-	<Compile Include="CP\Chroni\ReclamationResponseCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\CarePlanEN.cs" />
-	<Compile Include="CEN\Chroni\CarePlanCEN.cs" />
-	<Compile Include="CAD\Chroni\ICarePlanCAD.cs" />
-	<Compile Include="CAD\Chroni\CarePlanCAD.cs" />
-	<Compile Include="CP\Chroni\CarePlanCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\CarePlanCEN_SetEndDate.cs" />
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\CarePlanCEN_SetModified.cs" />
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\ActivityEN.cs" />
-	<Compile Include="CEN\Chroni\ActivityCEN.cs" />
-	<Compile Include="CAD\Chroni\IActivityCAD.cs" />
-	<Compile Include="CAD\Chroni\ActivityCAD.cs" />
-	<Compile Include="CP\Chroni\ActivityCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\GoalEN.cs" />
-	<Compile Include="CEN\Chroni\GoalCEN.cs" />
-	<Compile Include="CAD\Chroni\IGoalCAD.cs" />
-	<Compile Include="CAD\Chroni\GoalCAD.cs" />
-	<Compile Include="CP\Chroni\GoalCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\GoalCEN_SetStatus.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\GoalCEN_SetStatusDate.cs" />
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\IngredientEN.cs" />
-	<Compile Include="CEN\Chroni\IngredientCEN.cs" />
-	<Compile Include="CAD\Chroni\IIngredientCAD.cs" />
-	<Compile Include="CAD\Chroni\IngredientCAD.cs" />
-	<Compile Include="CP\Chroni\IngredientCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\SlotEN.cs" />
-	<Compile Include="CEN\Chroni\SlotCEN.cs" />
-	<Compile Include="CAD\Chroni\ISlotCAD.cs" />
-	<Compile Include="CAD\Chroni\SlotCAD.cs" />
-	<Compile Include="CP\Chroni\SlotCP.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\SlotCEN_SetStatus.cs" />
-			
-			
-			
-			<Compile Include="CEN\Chroni\SlotCEN_SetNote.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\SlotCEN_SetStartDate.cs" />
-			
-			<Compile Include="CEN\Chroni\SlotCEN_SetEndDate.cs" />
-			
-			
-			
-	<Compile Include="EN\Chroni\ScheduleEN.cs" />
-	<Compile Include="CEN\Chroni\ScheduleCEN.cs" />
-	<Compile Include="CAD\Chroni\IScheduleCAD.cs" />
-	<Compile Include="CAD\Chroni\ScheduleCAD.cs" />
-	<Compile Include="CP\Chroni\ScheduleCP.cs" />
-			<Compile Include="CEN\Chroni\ScheduleCEN_New_.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\ScheduleCEN_SetActive.cs" />
-			
-			<Compile Include="CEN\Chroni\ScheduleCEN_SetDateStart.cs" />
-			
-			<Compile Include="CEN\Chroni\ScheduleCEN_SetDateEnd.cs" />
-			
-			<Compile Include="CEN\Chroni\ScheduleCEN_SetMorningStart.cs" />
-			
-			<Compile Include="CEN\Chroni\ScheduleCEN_SetMorningEnd.cs" />
-			
-			<Compile Include="CEN\Chroni\ScheduleCEN_SetAfternoonStart.cs" />
-			
-			<Compile Include="CEN\Chroni\ScheduleCEN_SetAfternoonEnd.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\MedicationEN.cs" />
-	<Compile Include="CEN\Chroni\MedicationCEN.cs" />
-	<Compile Include="CAD\Chroni\IMedicationCAD.cs" />
-	<Compile Include="CAD\Chroni\MedicationCAD.cs" />
-	<Compile Include="CP\Chroni\MedicationCP.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\MedicationCEN_SetDosage.cs" />
-			
-			<Compile Include="CEN\Chroni\MedicationCEN_SetRate.cs" />
-			
-			<Compile Include="CEN\Chroni\MedicationCEN_SetStatus.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\SubstanceCodeEN.cs" />
-	<Compile Include="CEN\Chroni\SubstanceCodeCEN.cs" />
-	<Compile Include="CAD\Chroni\ISubstanceCodeCAD.cs" />
-	<Compile Include="CAD\Chroni\SubstanceCodeCAD.cs" />
-	<Compile Include="CP\Chroni\SubstanceCodeCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\CarePlanCategoryEN.cs" />
-	<Compile Include="CEN\Chroni\CarePlanCategoryCEN.cs" />
-	<Compile Include="CAD\Chroni\ICarePlanCategoryCAD.cs" />
-	<Compile Include="CAD\Chroni\CarePlanCategoryCAD.cs" />
-	<Compile Include="CP\Chroni\CarePlanCategoryCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\ConditionCodeEN.cs" />
-	<Compile Include="CEN\Chroni\ConditionCodeCEN.cs" />
-	<Compile Include="CAD\Chroni\IConditionCodeCAD.cs" />
-	<Compile Include="CAD\Chroni\ConditionCodeCAD.cs" />
-	<Compile Include="CP\Chroni\ConditionCodeCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\AdministratorEN.cs" />
-	<Compile Include="CEN\Chroni\AdministratorCEN.cs" />
-	<Compile Include="CAD\Chroni\IAdministratorCAD.cs" />
-	<Compile Include="CAD\Chroni\AdministratorCAD.cs" />
-	<Compile Include="CP\Chroni\AdministratorCP.cs" />
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\AdministratorCEN_Login.cs" />
-			
-			<Compile Include="CEN\Chroni\AdministratorCEN_Logout.cs" />
-			
-			<Compile Include="CEN\Chroni\AdministratorCEN_SetGender.cs" />
-			
-			<Compile Include="CEN\Chroni\AdministratorCEN_SetBirthDate.cs" />
-			
-			<Compile Include="CEN\Chroni\AdministratorCEN_SetPhoto.cs" />
-			
-			<Compile Include="CEN\Chroni\AdministratorCEN_SetEmail.cs" />
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\AdministratorCEN_SetPassword.cs" />
-			
-			
-			
-	<Compile Include="EN\Chroni\RelationshipEN.cs" />
-	<Compile Include="CEN\Chroni\RelationshipCEN.cs" />
-	<Compile Include="CAD\Chroni\IRelationshipCAD.cs" />
-	<Compile Include="CAD\Chroni\RelationshipCAD.cs" />
-	<Compile Include="CP\Chroni\RelationshipCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\RelationshipCEN_SetRelationshipType.cs" />
-			
-			<Compile Include="CEN\Chroni\RelationshipCEN_SetRelationship.cs" />
-			
-	<Compile Include="EN\Chroni\SpecialtyEN.cs" />
-	<Compile Include="CEN\Chroni\SpecialtyCEN.cs" />
-	<Compile Include="CAD\Chroni\ISpecialtyCAD.cs" />
-	<Compile Include="CAD\Chroni\SpecialtyCAD.cs" />
-	<Compile Include="CP\Chroni\SpecialtyCP.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	<Compile Include="EN\Chroni\AssessmentEN.cs" />
-	<Compile Include="CEN\Chroni\AssessmentCEN.cs" />
-	<Compile Include="CAD\Chroni\IAssessmentCAD.cs" />
-	<Compile Include="CAD\Chroni\AssessmentCAD.cs" />
-	<Compile Include="CP\Chroni\AssessmentCP.cs" />
-			<Compile Include="CEN\Chroni\AssessmentCEN_New_.cs" />
-			
-			
-			
-			
-			
-			
-			
-			
-			<Compile Include="CEN\Chroni\AssessmentCEN_SetRating.cs" />
-			
-	<Compile Include="Enumerated\Chroni\GenderEnum.cs" />
-	<Compile Include="Enumerated\Chroni\RelationshipEnum.cs" />
-	<Compile Include="Enumerated\Chroni\PractitionerRoleEnum.cs" />
-	<Compile Include="Enumerated\Chroni\LocationStatusEnum.cs" />
-	<Compile Include="Enumerated\Chroni\LocationModeEnum.cs" />
-	<Compile Include="Enumerated\Chroni\LocationTypeEnum.cs" />
-	<Compile Include="Enumerated\Chroni\LocationPhysicalTypeEnum.cs" />
-	<Compile Include="Enumerated\Chroni\GoalCategoryEnum.cs" />
-	<Compile Include="Enumerated\Chroni\GoalStatusEnum.cs" />
-	<Compile Include="Enumerated\Chroni\GoalPriorityEnum.cs" />
-	<Compile Include="Enumerated\Chroni\MaritalStatusEnum.cs" />
-	<Compile Include="Enumerated\Chroni\ConditionCategoryEnum.cs" />
-	<Compile Include="Enumerated\Chroni\ConditionClinicalStatusEnum.cs" />
-	<Compile Include="Enumerated\Chroni\ConditionSeverityEnum.cs" />
-	<Compile Include="Enumerated\Chroni\EncounterStatusEnum.cs" />
-	<Compile Include="Enumerated\Chroni\EncounterTypeEnum.cs" />
-	<Compile Include="Enumerated\Chroni\EncounterPriorityEnum.cs" />
-	<Compile Include="Enumerated\Chroni\SlotStatusEnum.cs" />
-	<Compile Include="Enumerated\Chroni\CarePlanStatusEnum.cs" />
-	<Compile Include="Enumerated\Chroni\FormEnum.cs" />
-	<Compile Include="Enumerated\Chroni\ObservationCategoryEnum.cs" />
-	<Compile Include="Enumerated\Chroni\SymptomGradeEnum.cs" />
-	<Compile Include="Enumerated\Chroni\MeasureTypeEnum.cs" />
-	<Compile Include="Enumerated\Chroni\ReclamationActionEnum.cs" />
-	<Compile Include="Enumerated\Chroni\ReclamationResponseActionStateEnum.cs" />
-	<Compile Include="Enumerated\Chroni\ReclamationTypeEnum.cs" />
-	<Compile Include="Enumerated\Chroni\MedicationStatusEnum.cs" />
-	
-	
-
-		    
-	
-
-		    <Compile Include="Properties\AssemblyInfo.cs" />
-		    <Compile Include="Properties\Settings.Designer.cs">
-		      <AutoGen>True</AutoGen>
-		      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-		      <DependentUpon>Settings.settings</DependentUpon>
-		    </Compile>
-		  </ItemGroup>
-		  <ItemGroup>
-		  
-	<EmbeddedResource Include="Mappings\Chroni\location.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\position.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\practitioner.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\diary.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\observation.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\patient.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\relatedperson.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\encounter.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\condition.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\conversation.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\message.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\reclamation.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\reclamationresponse.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\careplan.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\activity.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\goal.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\ingredient.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\slot.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\schedule.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\medication.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\substancecode.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\careplancategory.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\conditioncode.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\administrator.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\relationship.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\specialty.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Chroni\assessment.hbm.xml" />
-	
-	
-
-		  </ItemGroup>
-		  <ItemGroup>
-		    <Content Include="hibernate.cfg.xml">
-		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		    </Content>
-		  </ItemGroup>
-		  <ItemGroup>
-		    <None Include="app.config" />
-		    <None Include="Properties\Settings.settings">
-		      <Generator>SettingsSingleFileGenerator</Generator>
-		      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-		    </None>
-		        <None Include="Resources\xsd\nhibernate-configuration.xsd">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChroniGenNHibernate</RootNamespace>
+    <AssemblyName>ChroniGenNHibernate</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ChroniGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ChroniGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ChroniGenNHibernate\AppLib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ChroniGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ChroniGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\ChroniGenNHibernate\AppLib\Antlr3.Runtime.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\Iesi.Collections.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\log4net.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\NHibernate.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\nunit.core.dll" />
+    <Content Include="..\ChroniGenNHibernate\AppLib\nunit.framework.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="Utils\Util.cs" />
+    <Compile Include="Exceptions\ModelException.cs" />
+    <Compile Include="Exceptions\DataLayerException.cs" />
+    <Compile Include="CAD\BasicCAD.cs" />
+    <Compile Include="CP\BasicCP.cs" />
+    <Compile Include="EN\Chroni\LocationEN.cs" />
+    <Compile Include="CEN\Chroni\LocationCEN.cs" />
+    <Compile Include="CAD\Chroni\ILocationCAD.cs" />
+    <Compile Include="CAD\Chroni\LocationCAD.cs" />
+    <Compile Include="CP\Chroni\LocationCP.cs" />
+    <Compile Include="CEN\Chroni\LocationCEN_SetStatus.cs" />
+    <Compile Include="CEN\Chroni\LocationCEN_SetMode.cs" />
+    <Compile Include="CEN\Chroni\LocationCEN_SetType.cs" />
+    <Compile Include="CEN\Chroni\LocationCEN_SetPhysicalType.cs" />
+    <Compile Include="CEN\Chroni\LocationCEN_SetManagingOrganization.cs" />
+    <Compile Include="CEN\Chroni\LocationCEN_SetPhone.cs" />
+    <Compile Include="CEN\Chroni\LocationCEN_SetEmail.cs" />
+    <Compile Include="EN\Chroni\PositionEN.cs" />
+    <Compile Include="CEN\Chroni\PositionCEN.cs" />
+    <Compile Include="CAD\Chroni\IPositionCAD.cs" />
+    <Compile Include="CAD\Chroni\PositionCAD.cs" />
+    <Compile Include="CP\Chroni\PositionCP.cs" />
+    <Compile Include="EN\Chroni\PractitionerEN.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN.cs" />
+    <Compile Include="CAD\Chroni\IPractitionerCAD.cs" />
+    <Compile Include="CAD\Chroni\PractitionerCAD.cs" />
+    <Compile Include="CP\Chroni\PractitionerCP.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetGender.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetRole.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetActive.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetEndDate.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetPhoto.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetAddress.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetPhone.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetEmail.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_Login.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_Logout.cs" />
+    <Compile Include="CEN\Chroni\PractitionerCEN_SetPassword.cs" />
+    <Compile Include="EN\Chroni\DiaryEN.cs" />
+    <Compile Include="CEN\Chroni\DiaryCEN.cs" />
+    <Compile Include="CAD\Chroni\IDiaryCAD.cs" />
+    <Compile Include="CAD\Chroni\DiaryCAD.cs" />
+    <Compile Include="CP\Chroni\DiaryCP.cs" />
+    <Compile Include="CEN\Chroni\DiaryCEN_New_.cs" />
+    <Compile Include="EN\Chroni\ObservationEN.cs" />
+    <Compile Include="CEN\Chroni\ObservationCEN.cs" />
+    <Compile Include="CAD\Chroni\IObservationCAD.cs" />
+    <Compile Include="CAD\Chroni\ObservationCAD.cs" />
+    <Compile Include="CP\Chroni\ObservationCP.cs" />
+    <Compile Include="CEN\Chroni\ObservationCEN_SetMeasureType.cs" />
+    <Compile Include="CEN\Chroni\ObservationCEN_SetDateObservation.cs" />
+    <Compile Include="CEN\Chroni\ObservationCEN_SetSymptomGrade.cs" />
+    <Compile Include="CEN\Chroni\ObservationCEN_SetValue1.cs" />
+    <Compile Include="CEN\Chroni\ObservationCEN_SetValue2.cs" />
+    <Compile Include="CEN\Chroni\ObservationCEN_SetNote.cs" />
+    <Compile Include="EN\Chroni\PatientEN.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN.cs" />
+    <Compile Include="CAD\Chroni\IPatientCAD.cs" />
+    <Compile Include="CAD\Chroni\PatientCAD.cs" />
+    <Compile Include="CP\Chroni\PatientCP.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetActive.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetDeceased.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetMaritalStatus.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetAddress.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetPhone.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetEmail.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_Login.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_Logout.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetPassword.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetName.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetSurnames.cs" />
+    <Compile Include="CEN\Chroni\PatientCEN_SetBirthDate.cs" />
+    <Compile Include="EN\Chroni\RelatedPersonEN.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN.cs" />
+    <Compile Include="CAD\Chroni\IRelatedPersonCAD.cs" />
+    <Compile Include="CAD\Chroni\RelatedPersonCAD.cs" />
+    <Compile Include="CP\Chroni\RelatedPersonCP.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN_SetPhoto.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN_SetEndDate.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN_SetPhone.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN_SetEmail.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN_SetAddress.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN_Login.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN_Logout.cs" />
+    <Compile Include="CEN\Chroni\RelatedPersonCEN_SetPassword.cs" />
+    <Compile Include="EN\Chroni\EncounterEN.cs" />
+    <Compile Include="CEN\Chroni\EncounterCEN.cs" />
+    <Compile Include="CAD\Chroni\IEncounterCAD.cs" />
+    <Compile Include="CAD\Chroni\EncounterCAD.cs" />
+    <Compile Include="CP\Chroni\EncounterCP.cs" />
+    <Compile Include="CEN\Chroni\EncounterCEN_SetPriority.cs" />
+    <Compile Include="CEN\Chroni\EncounterCEN_SetStatus.cs" />
+    <Compile Include="CEN\Chroni\EncounterCEN_SetNote.cs" />
+    <Compile Include="EN\Chroni\ConditionEN.cs" />
+    <Compile Include="CEN\Chroni\ConditionCEN.cs" />
+    <Compile Include="CAD\Chroni\IConditionCAD.cs" />
+    <Compile Include="CAD\Chroni\ConditionCAD.cs" />
+    <Compile Include="CP\Chroni\ConditionCP.cs" />
+    <Compile Include="CEN\Chroni\ConditionCEN_SetNote.cs" />
+    <Compile Include="EN\Chroni\ConversationEN.cs" />
+    <Compile Include="CEN\Chroni\ConversationCEN.cs" />
+    <Compile Include="CAD\Chroni\IConversationCAD.cs" />
+    <Compile Include="CAD\Chroni\ConversationCAD.cs" />
+    <Compile Include="CP\Chroni\ConversationCP.cs" />
+    <Compile Include="CEN\Chroni\ConversationCEN_New_.cs" />
+    <Compile Include="EN\Chroni\MessageEN.cs" />
+    <Compile Include="CEN\Chroni\MessageCEN.cs" />
+    <Compile Include="CAD\Chroni\IMessageCAD.cs" />
+    <Compile Include="CAD\Chroni\MessageCAD.cs" />
+    <Compile Include="CP\Chroni\MessageCP.cs" />
+    <Compile Include="CEN\Chroni\MessageCEN_SetIsRead.cs" />
+    <Compile Include="EN\Chroni\ReclamationEN.cs" />
+    <Compile Include="CEN\Chroni\ReclamationCEN.cs" />
+    <Compile Include="CAD\Chroni\IReclamationCAD.cs" />
+    <Compile Include="CAD\Chroni\ReclamationCAD.cs" />
+    <Compile Include="CP\Chroni\ReclamationCP.cs" />
+    <Compile Include="CEN\Chroni\ReclamationCEN_New_.cs" />
+    <Compile Include="CEN\Chroni\ReclamationCEN_SetResolved.cs" />
+    <Compile Include="CEN\Chroni\ReclamationCEN_SetNote.cs" />
+    <Compile Include="EN\Chroni\ReclamationResponseEN.cs" />
+    <Compile Include="CEN\Chroni\ReclamationResponseCEN.cs" />
+    <Compile Include="CAD\Chroni\IReclamationResponseCAD.cs" />
+    <Compile Include="CAD\Chroni\ReclamationResponseCAD.cs" />
+    <Compile Include="CP\Chroni\ReclamationResponseCP.cs" />
+    <Compile Include="EN\Chroni\CarePlanEN.cs" />
+    <Compile Include="CEN\Chroni\CarePlanCEN.cs" />
+    <Compile Include="CAD\Chroni\ICarePlanCAD.cs" />
+    <Compile Include="CAD\Chroni\CarePlanCAD.cs" />
+    <Compile Include="CP\Chroni\CarePlanCP.cs" />
+    <Compile Include="CEN\Chroni\CarePlanCEN_SetEndDate.cs" />
+    <Compile Include="CEN\Chroni\CarePlanCEN_SetModified.cs" />
+    <Compile Include="EN\Chroni\ActivityEN.cs" />
+    <Compile Include="CEN\Chroni\ActivityCEN.cs" />
+    <Compile Include="CAD\Chroni\IActivityCAD.cs" />
+    <Compile Include="CAD\Chroni\ActivityCAD.cs" />
+    <Compile Include="CP\Chroni\ActivityCP.cs" />
+    <Compile Include="EN\Chroni\GoalEN.cs" />
+    <Compile Include="CEN\Chroni\GoalCEN.cs" />
+    <Compile Include="CAD\Chroni\IGoalCAD.cs" />
+    <Compile Include="CAD\Chroni\GoalCAD.cs" />
+    <Compile Include="CP\Chroni\GoalCP.cs" />
+    <Compile Include="CEN\Chroni\GoalCEN_SetStatus.cs" />
+    <Compile Include="CEN\Chroni\GoalCEN_SetStatusDate.cs" />
+    <Compile Include="EN\Chroni\IngredientEN.cs" />
+    <Compile Include="CEN\Chroni\IngredientCEN.cs" />
+    <Compile Include="CAD\Chroni\IIngredientCAD.cs" />
+    <Compile Include="CAD\Chroni\IngredientCAD.cs" />
+    <Compile Include="CP\Chroni\IngredientCP.cs" />
+    <Compile Include="EN\Chroni\SlotEN.cs" />
+    <Compile Include="CEN\Chroni\SlotCEN.cs" />
+    <Compile Include="CAD\Chroni\ISlotCAD.cs" />
+    <Compile Include="CAD\Chroni\SlotCAD.cs" />
+    <Compile Include="CP\Chroni\SlotCP.cs" />
+    <Compile Include="CEN\Chroni\SlotCEN_SetStatus.cs" />
+    <Compile Include="CEN\Chroni\SlotCEN_SetNote.cs" />
+    <Compile Include="CEN\Chroni\SlotCEN_SetStartDate.cs" />
+    <Compile Include="CEN\Chroni\SlotCEN_SetEndDate.cs" />
+    <Compile Include="EN\Chroni\ScheduleEN.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN.cs" />
+    <Compile Include="CAD\Chroni\IScheduleCAD.cs" />
+    <Compile Include="CAD\Chroni\ScheduleCAD.cs" />
+    <Compile Include="CP\Chroni\ScheduleCP.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN_New_.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN_SetActive.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN_SetDateStart.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN_SetDateEnd.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN_SetMorningStart.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN_SetMorningEnd.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN_SetAfternoonStart.cs" />
+    <Compile Include="CEN\Chroni\ScheduleCEN_SetAfternoonEnd.cs" />
+    <Compile Include="EN\Chroni\MedicationEN.cs" />
+    <Compile Include="CEN\Chroni\MedicationCEN.cs" />
+    <Compile Include="CAD\Chroni\IMedicationCAD.cs" />
+    <Compile Include="CAD\Chroni\MedicationCAD.cs" />
+    <Compile Include="CP\Chroni\MedicationCP.cs" />
+    <Compile Include="CEN\Chroni\MedicationCEN_SetDosage.cs" />
+    <Compile Include="CEN\Chroni\MedicationCEN_SetRate.cs" />
+    <Compile Include="CEN\Chroni\MedicationCEN_SetStatus.cs" />
+    <Compile Include="EN\Chroni\SubstanceCodeEN.cs" />
+    <Compile Include="CEN\Chroni\SubstanceCodeCEN.cs" />
+    <Compile Include="CAD\Chroni\ISubstanceCodeCAD.cs" />
+    <Compile Include="CAD\Chroni\SubstanceCodeCAD.cs" />
+    <Compile Include="CP\Chroni\SubstanceCodeCP.cs" />
+    <Compile Include="EN\Chroni\CarePlanCategoryEN.cs" />
+    <Compile Include="CEN\Chroni\CarePlanCategoryCEN.cs" />
+    <Compile Include="CAD\Chroni\ICarePlanCategoryCAD.cs" />
+    <Compile Include="CAD\Chroni\CarePlanCategoryCAD.cs" />
+    <Compile Include="CP\Chroni\CarePlanCategoryCP.cs" />
+    <Compile Include="EN\Chroni\ConditionCodeEN.cs" />
+    <Compile Include="CEN\Chroni\ConditionCodeCEN.cs" />
+    <Compile Include="CAD\Chroni\IConditionCodeCAD.cs" />
+    <Compile Include="CAD\Chroni\ConditionCodeCAD.cs" />
+    <Compile Include="CP\Chroni\ConditionCodeCP.cs" />
+    <Compile Include="EN\Chroni\AdministratorEN.cs" />
+    <Compile Include="CEN\Chroni\AdministratorCEN.cs" />
+    <Compile Include="CAD\Chroni\IAdministratorCAD.cs" />
+    <Compile Include="CAD\Chroni\AdministratorCAD.cs" />
+    <Compile Include="CP\Chroni\AdministratorCP.cs" />
+    <Compile Include="CEN\Chroni\AdministratorCEN_Login.cs" />
+    <Compile Include="CEN\Chroni\AdministratorCEN_Logout.cs" />
+    <Compile Include="CEN\Chroni\AdministratorCEN_SetGender.cs" />
+    <Compile Include="CEN\Chroni\AdministratorCEN_SetBirthDate.cs" />
+    <Compile Include="CEN\Chroni\AdministratorCEN_SetPhoto.cs" />
+    <Compile Include="CEN\Chroni\AdministratorCEN_SetEmail.cs" />
+    <Compile Include="CEN\Chroni\AdministratorCEN_SetPassword.cs" />
+    <Compile Include="EN\Chroni\RelationshipEN.cs" />
+    <Compile Include="CEN\Chroni\RelationshipCEN.cs" />
+    <Compile Include="CAD\Chroni\IRelationshipCAD.cs" />
+    <Compile Include="CAD\Chroni\RelationshipCAD.cs" />
+    <Compile Include="CP\Chroni\RelationshipCP.cs" />
+    <Compile Include="CEN\Chroni\RelationshipCEN_SetRelationshipType.cs" />
+    <Compile Include="CEN\Chroni\RelationshipCEN_SetRelationship.cs" />
+    <Compile Include="EN\Chroni\SpecialtyEN.cs" />
+    <Compile Include="CEN\Chroni\SpecialtyCEN.cs" />
+    <Compile Include="CAD\Chroni\ISpecialtyCAD.cs" />
+    <Compile Include="CAD\Chroni\SpecialtyCAD.cs" />
+    <Compile Include="CP\Chroni\SpecialtyCP.cs" />
+    <Compile Include="EN\Chroni\AssessmentEN.cs" />
+    <Compile Include="CEN\Chroni\AssessmentCEN.cs" />
+    <Compile Include="CAD\Chroni\IAssessmentCAD.cs" />
+    <Compile Include="CAD\Chroni\AssessmentCAD.cs" />
+    <Compile Include="CP\Chroni\AssessmentCP.cs" />
+    <Compile Include="CEN\Chroni\AssessmentCEN_New_.cs" />
+    <Compile Include="CEN\Chroni\AssessmentCEN_SetRating.cs" />
+    <Compile Include="Enumerated\Chroni\GenderEnum.cs" />
+    <Compile Include="Enumerated\Chroni\RelationshipEnum.cs" />
+    <Compile Include="Enumerated\Chroni\PractitionerRoleEnum.cs" />
+    <Compile Include="Enumerated\Chroni\LocationStatusEnum.cs" />
+    <Compile Include="Enumerated\Chroni\LocationModeEnum.cs" />
+    <Compile Include="Enumerated\Chroni\LocationTypeEnum.cs" />
+    <Compile Include="Enumerated\Chroni\LocationPhysicalTypeEnum.cs" />
+    <Compile Include="Enumerated\Chroni\GoalCategoryEnum.cs" />
+    <Compile Include="Enumerated\Chroni\GoalStatusEnum.cs" />
+    <Compile Include="Enumerated\Chroni\GoalPriorityEnum.cs" />
+    <Compile Include="Enumerated\Chroni\MaritalStatusEnum.cs" />
+    <Compile Include="Enumerated\Chroni\ConditionCategoryEnum.cs" />
+    <Compile Include="Enumerated\Chroni\ConditionClinicalStatusEnum.cs" />
+    <Compile Include="Enumerated\Chroni\ConditionSeverityEnum.cs" />
+    <Compile Include="Enumerated\Chroni\EncounterStatusEnum.cs" />
+    <Compile Include="Enumerated\Chroni\EncounterTypeEnum.cs" />
+    <Compile Include="Enumerated\Chroni\EncounterPriorityEnum.cs" />
+    <Compile Include="Enumerated\Chroni\SlotStatusEnum.cs" />
+    <Compile Include="Enumerated\Chroni\CarePlanStatusEnum.cs" />
+    <Compile Include="Enumerated\Chroni\FormEnum.cs" />
+    <Compile Include="Enumerated\Chroni\ObservationCategoryEnum.cs" />
+    <Compile Include="Enumerated\Chroni\SymptomGradeEnum.cs" />
+    <Compile Include="Enumerated\Chroni\MeasureTypeEnum.cs" />
+    <Compile Include="Enumerated\Chroni\ReclamationActionEnum.cs" />
+    <Compile Include="Enumerated\Chroni\ReclamationResponseActionStateEnum.cs" />
+    <Compile Include="Enumerated\Chroni\ReclamationTypeEnum.cs" />
+    <Compile Include="Enumerated\Chroni\MedicationStatusEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Chroni\location.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\position.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\practitioner.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\diary.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\observation.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\patient.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\relatedperson.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\encounter.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\condition.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\conversation.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\message.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\reclamation.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\reclamationresponse.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\careplan.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\activity.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\goal.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\ingredient.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\slot.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\schedule.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\medication.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\substancecode.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\careplancategory.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\conditioncode.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\administrator.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\relationship.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\specialty.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chroni\assessment.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\xsd\nhibernate-configuration.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\xsd\nhibernate-mapping.xsd">
       <SubType>Designer</SubType>
     </None>
-		  </ItemGroup>
-	 	
-		
-	
-		<ItemGroup>
-		    <ProjectReference Include="..\APIExterna\APIExterna.csproj">
-		      <Project>{4ade35c8-a0c3-49da-9e1a-11a53ca19214}</Project>
-		      <Name>APIExterna</Name>
-		    </ProjectReference>
-	    </ItemGroup>
-	    
-		  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-		  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APIExterna\APIExterna.csproj">
+      <Project>{4ade35c8-a0c3-49da-9e1a-11a53ca19214}</Project>
+      <Name>APIExterna</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 		       Other similar extension points exist, see Microsoft.Common.targets.
 		  <Target Name="BeforeBuild">
 		  </Target>
 		  <Target Name="AfterBuild">
 		  </Target>
 		  -->
-		</Project>
+</Project>

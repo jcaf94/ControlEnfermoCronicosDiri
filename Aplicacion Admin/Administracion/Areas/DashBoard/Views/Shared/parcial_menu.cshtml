@@ -5,5 +5,18 @@
     </form>
     @DashMenu.Menu(Html, Url, ViewBag.menu.ToString())
 
-    <div class="attribution">@Administracion.Resources.textos.copyRight <br /> &copy; 2017 </div>
+    <div class="attribution">
+
+        <div class="row">
+
+            <div id="botonera-idioma" class="col-md-9 col-md-offset-3 btn-group">
+                <button id="btn-es" lang="es" class="btn btn-xs btndefault">Español</button>
+                <button id="btn-en" lang="en" class="btn btn-xs btndefault">English</button>
+            </div>
+        </div>
+
+        <br>
+
+        @Administracion.Resources.textos.copyRight <br /> &copy; 2017 
+    </div>
 </div>

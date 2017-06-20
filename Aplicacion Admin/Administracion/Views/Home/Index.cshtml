@@ -34,6 +34,19 @@
                             @Html.AntiForgeryToken()
 
                             <div class="login-form">
+
+                                @if (TempData["error"] != null && TempData["error"].ToString() != "")
+                                {
+                                    string estilo = "info";
+                                    if (TempData["ok"] != null && TempData["ok"].ToString() != "")
+                                    {
+                                        estilo = TempData["ok"].ToString();
+                                    }
+                                    <div class="alert alert-@estilo div-hidden">@TempData["error"]</div>
+                                    TempData["resultado"] = "";
+                                    TempData["ok"] = "";
+                                }
+
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                                 <div class="form-group">
@@ -70,5 +83,10 @@
 
 
 @section Scripts {
-
+    <script>
+            //Ocultar mensajes
+            $(document).ready(function () {
+                $(".div-hidden").fadeOut(3000);
+            });
+    </script>
 }

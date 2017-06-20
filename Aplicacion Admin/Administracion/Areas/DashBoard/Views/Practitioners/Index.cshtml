@@ -7,7 +7,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Practitioner</h1>
+            <h1 class="page-header">@Administracion.Resources.textos.botonPrac</h1>
 
             @if (TempData["resultado"] != null && TempData["resultado"].ToString() != "")
             {
@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading th-color">Listado Practitioners</div>
+                <div class="panel-heading th-color">@Administracion.Resources.textos.pracList</div>
 
 
 
@@ -35,7 +35,7 @@
 
                     <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                        <input type="text" class="form-control" id="search" placeholder="  Filtra los datos por cualquier campo">
+                        <input type="text" class="form-control" id="search" placeholder="  @Administracion.Resources.textos.filtrado">
                     </div>
 
                     <table id="practitionersTable" data-toggle="table" class="table table-striped tablesorter">
@@ -54,13 +54,13 @@
                                     @Html.DisplayNameFor(model => model.Especialidad)
                                 </th>
                                 <th>
-                                    Detalles
+                                    @Administracion.Resources.textos.detalles
                                 </th>
                                 <th>
-                                    Editar
+                                    @Administracion.Resources.textos.editar
                                 </th>
                                 <th>
-                                    Borrar
+                                    @Administracion.Resources.textos.borrar
                                 </th>
                             </tr>
                         </thead>
@@ -120,7 +120,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Administracion.Resources.textos.modalCerrar</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -131,14 +131,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">¡Atención!</h4>
+                <h4 class="modal-title">@Administracion.Resources.textos.modalTitulo</h4>
             </div>
             <div class="modal-body">
-                <p>Se dispone a eliminar un practitioner, ¿Está seguro?</p>
+                <p>@Administracion.Resources.textos.modalConfirmation</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                <button id="btn-eliminar-modal" type="button" class="btn btn-primary">Sí</button>
+                <button id="btn-eliminar-modal" type="button" class="btn btn-primary">@Administracion.Resources.textos.afirmacion</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

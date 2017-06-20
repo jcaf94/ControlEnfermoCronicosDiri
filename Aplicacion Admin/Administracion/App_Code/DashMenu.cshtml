@@ -10,7 +10,8 @@
         <li @Html.Raw(option == "Positions" ? "class='active'" : "")> <a href="@url.Action("Index", "Positions", new { Area = "DashBoard" })"><i class="fa fa-globe fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonPos</a></li>
         <li @Html.Raw(option == "Locations" ? "class='active'" : "")> <a href="@url.Action("Index", "Locations", new { Area = "DashBoard" })"><i class="fa fa-hospital-o fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonLoc </a></li>
         <li @Html.Raw(option == "Practitioners" ? "class='active'" : "")><a href="@url.Action("Index", "Practitioners", new { Area = "DashBoard" })"><i class="fa fa-user-md fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonPrac </a></li>
-        
+        <li @Html.Raw(option == "Specialities" ? "class='active'" : "")><a href="@url.Action("Index", "Especialidad", new { Area = "DashBoard" })"><i class="fa fa-heartbeat fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonSpec </a></li>
+        <li @Html.Raw(option == "Patients" ? "class='active'" : "")><a href="@url.Action("Index", "Patient", new { Area = "DashBoard" })"><i class="fa fa-users fa-fw fa-lg" aria-hidden="true"></i> @Administracion.Resources.textos.botonPat </a></li>
     </ul>
 }
 

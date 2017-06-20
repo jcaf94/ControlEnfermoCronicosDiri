@@ -61,6 +61,15 @@ namespace Administracion.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Si.
+        /// </summary>
+        public static string afirmacion {
+            get {
+                return ResourceManager.GetString("afirmacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Altitud .
         /// </summary>
         public static string alt {
@@ -151,6 +160,15 @@ namespace Administracion.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Pacientes.
+        /// </summary>
+        public static string botonPat {
+            get {
+                return ResourceManager.GetString("botonPat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Plan de cuidado.
         /// </summary>
         public static string botonPlan {
@@ -178,11 +196,74 @@ namespace Administracion.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Especialidades.
+        /// </summary>
+        public static string botonSpec {
+            get {
+                return ResourceManager.GetString("botonSpec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Volver al listado principal.
+        /// </summary>
+        public static string buttonBack {
+            get {
+                return ResourceManager.GetString("buttonBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crear.
+        /// </summary>
+        public static string buttonCreate {
+            get {
+                return ResourceManager.GetString("buttonCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar.
+        /// </summary>
+        public static string buttonEdit {
+            get {
+                return ResourceManager.GetString("buttonEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Realizado por CroniCall.
         /// </summary>
         public static string copyRight {
             get {
                 return ResourceManager.GetString("copyRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elemento creado correctamente.
+        /// </summary>
+        public static string createOK {
+            get {
+                return ResourceManager.GetString("createOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elemento borrado correctamente.
+        /// </summary>
+        public static string deleteOK {
+            get {
+                return ResourceManager.GetString("deleteOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Detalles.
+        /// </summary>
+        public static string detailsModal {
+            get {
+                return ResourceManager.GetString("detailsModal", resourceCulture);
             }
         }
         
@@ -201,6 +282,69 @@ namespace Administracion.Resources {
         public static string editar {
             get {
                 return ResourceManager.GetString("editar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar Elemento.
+        /// </summary>
+        public static string editElemento {
+            get {
+                return ResourceManager.GetString("editElemento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elemento editado correctamente.
+        /// </summary>
+        public static string editOK {
+            get {
+                return ResourceManager.GetString("editOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error obteniendo los detalles del elemento.
+        /// </summary>
+        public static string errorDataModal {
+            get {
+                return ResourceManager.GetString("errorDataModal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un error durante la operación..
+        /// </summary>
+        public static string errorKO {
+            get {
+                return ResourceManager.GetString("errorKO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario o contraseña introducida incorrectas.
+        /// </summary>
+        public static string errorLoginAcceso {
+            get {
+                return ResourceManager.GetString("errorLoginAcceso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un problema durante la operación inténtelo más tarde. Error producido: .
+        /// </summary>
+        public static string errorLoginGeneric {
+            get {
+                return ResourceManager.GetString("errorLoginGeneric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Listado de especialidades.
+        /// </summary>
+        public static string espList {
+            get {
+                return ResourceManager.GetString("espList", resourceCulture);
             }
         }
         
@@ -259,7 +403,7 @@ namespace Administracion.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Listado de locations.
+        ///   Busca una cadena traducida similar a Listado de localizaciones.
         /// </summary>
         public static string locList {
             get {
@@ -286,6 +430,51 @@ namespace Administracion.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cerrar.
+        /// </summary>
+        public static string modalCerrar {
+            get {
+                return ResourceManager.GetString("modalCerrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se dispone a eliminar este elemento, ¿Está seguro?.
+        /// </summary>
+        public static string modalConfirmation {
+            get {
+                return ResourceManager.GetString("modalConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Atención!.
+        /// </summary>
+        public static string modalTitulo {
+            get {
+                return ResourceManager.GetString("modalTitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No existen elementos que mostrar.
+        /// </summary>
+        public static string modelEmpty {
+            get {
+                return ResourceManager.GetString("modelEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Listado de pacientes.
+        /// </summary>
+        public static string patList {
+            get {
+                return ResourceManager.GetString("patList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Contraseña ....
         /// </summary>
         public static string placeHolderInicioPass {
@@ -304,11 +493,38 @@ namespace Administracion.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Listado de posiciones.
+        /// </summary>
+        public static string posList {
+            get {
+                return ResourceManager.GetString("posList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Listado de médicos.
+        /// </summary>
+        public static string pracList {
+            get {
+                return ResourceManager.GetString("pracList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Accede al dashboard.
         /// </summary>
         public static string subtituloInicio {
             get {
                 return ResourceManager.GetString("subtituloInicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crear Elemento.
+        /// </summary>
+        public static string tittleCreate {
+            get {
+                return ResourceManager.GetString("tittleCreate", resourceCulture);
             }
         }
         

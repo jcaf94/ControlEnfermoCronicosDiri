@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="afirmacion" xml:space="preserve">
+    <value>Yes</value>
+  </data>
   <data name="alt" xml:space="preserve">
     <value>Altitude </value>
   </data>
@@ -147,6 +150,9 @@
   <data name="botonPac" xml:space="preserve">
     <value>Patients</value>
   </data>
+  <data name="botonPat" xml:space="preserve">
+    <value>Patients</value>
+  </data>
   <data name="botonPlan" xml:space="preserve">
     <value>Care Plan</value>
   </data>
@@ -156,14 +162,56 @@
   <data name="botonPrac" xml:space="preserve">
     <value>Practitioners</value>
   </data>
+  <data name="botonSpec" xml:space="preserve">
+    <value>Specialities</value>
+  </data>
+  <data name="buttonBack" xml:space="preserve">
+    <value>Return to the main page</value>
+  </data>
+  <data name="buttonCreate" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="buttonEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="copyRight" xml:space="preserve">
     <value>Made by CroniCall</value>
+  </data>
+  <data name="createOK" xml:space="preserve">
+    <value>Created element correctly</value>
+  </data>
+  <data name="deleteOK" xml:space="preserve">
+    <value>Deleted element correctly</value>
+  </data>
+  <data name="detailsModal" xml:space="preserve">
+    <value>Details</value>
   </data>
   <data name="detalles" xml:space="preserve">
     <value>Details</value>
   </data>
   <data name="editar" xml:space="preserve">
     <value>Edit</value>
+  </data>
+  <data name="editElemento" xml:space="preserve">
+    <value>Edit Element</value>
+  </data>
+  <data name="editOK" xml:space="preserve">
+    <value>Edited element correctly</value>
+  </data>
+  <data name="errorDataModal" xml:space="preserve">
+    <value>Error while obtaining details of the element</value>
+  </data>
+  <data name="errorKO" xml:space="preserve">
+    <value>An error has ocurred during the operation</value>
+  </data>
+  <data name="errorLoginAcceso" xml:space="preserve">
+    <value>User or pass are not correct</value>
+  </data>
+  <data name="errorLoginGeneric" xml:space="preserve">
+    <value>A problem has ocurred during the operation, try again latter. Error produced:  </value>
+  </data>
+  <data name="espList" xml:space="preserve">
+    <value>List of specialties</value>
   </data>
   <data name="filtrado" xml:space="preserve">
     <value>  Filter data by any field</value>
@@ -192,6 +240,18 @@
   <data name="logOut" xml:space="preserve">
     <value>LogOut</value>
   </data>
+  <data name="modalCerrar" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="modalConfirmation" xml:space="preserve">
+    <value>You are going to delete this resource, are you sure?</value>
+  </data>
+  <data name="modalTitulo" xml:space="preserve">
+    <value>Attention!</value>
+  </data>
+  <data name="modelEmpty" xml:space="preserve">
+    <value>There aren't any elements to show</value>
+  </data>
   <data name="placeHolderInicioPass" xml:space="preserve">
     <value>Pass ...</value>
   </data>
@@ -201,7 +261,19 @@
   <data name="subtituloInicio" xml:space="preserve">
     <value>Access to dashboard</value>
   </data>
+  <data name="tittleCreate" xml:space="preserve">
+    <value>Create Element</value>
+  </data>
   <data name="tituloInicio" xml:space="preserve">
     <value>Access to login</value>
+  </data>
+  <data name="patList" xml:space="preserve">
+    <value>List of patients</value>
+  </data>
+  <data name="posList" xml:space="preserve">
+    <value>List of posicions</value>
+  </data>
+  <data name="pracList" xml:space="preserve">
+    <value>List of practitioners</value>
   </data>
 </root>

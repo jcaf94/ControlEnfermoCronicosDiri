@@ -30,7 +30,7 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
             catch(Exception ex)
             {
-                TempData["resultado"] = "No existen locations que mostrar.";
+                TempData["resultado"] = Resources.textos.modelEmpty;
                 TempData["ok"] = "warning";
             }
             
@@ -45,7 +45,7 @@ namespace Administracion.Areas.DashBoard.Controllers
             SessionInitialize();
 
             string resultado = "";
-            string locationNombre = " No se tiene registrado una localización para esta posición";
+            string locationNombre = Resources.textos.modelEmpty;
             PositionCAD cadPos = new PositionCAD();
             PositionCEN cen = new PositionCEN(cadPos);
             PositionEN posEN = cen.ReadOID(id);
@@ -59,13 +59,13 @@ namespace Administracion.Areas.DashBoard.Controllers
                     locationNombre = posEN.Location.Name; 
                 }
 
-                resultado = "<ul><li><strong>Id: </strong>" + posEN.Identifier + "</li><li><strong>Latitud: </strong>" + posEN.Latitude + "</li><li><strong>Longitud: </strong>" + posEN.Longitude + "</li><li><strong>Altitud: </strong>" + posEN.Altitude + "</li> <li><strong>Localización: </strong>" + locationNombre + "</li></ul>";
-                res.Add("titulo", "Detalles de la posición " + posEN.Identifier);
+                resultado = "<ul><li><strong>Id: </strong>" + posEN.Identifier + "</li><li><strong>Latitude: </strong>" + posEN.Latitude + "</li><li><strong>Longitude: </strong>" + posEN.Longitude + "</li><li><strong>Altitude: </strong>" + posEN.Altitude + "</li> <li><strong>Location: </strong>" + locationNombre + "</li></ul>";
+                res.Add("titulo", Resources.textos.detailsModal + posEN.Identifier);
             }
             else
             {
-                resultado = "<p>Error obteniendo los detalles de la position: " + id.ToString() + "</p>";
-                res.Add("titulo", "Atención!");
+                resultado = "<p>" + Resources.textos.errorDataModal + " "+ id.ToString() + "</p>";
+                res.Add("titulo", Resources.textos.modalTitulo);
             }
 
             res.Add("contenido", resultado);
@@ -103,7 +103,7 @@ namespace Administracion.Areas.DashBoard.Controllers
 
                 SessionClose();
 
-                TempData["resultado"] = "Localizacion creada correctamente.";
+                TempData["resultado"] = Resources.textos.createOK;
                 TempData["ok"] = "success";
 
                 return RedirectToAction("Index");
@@ -135,7 +135,7 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.error = "Error, causa: " + ex.Message;
+                ViewBag.error = "Error: " + ex.Message;
             }
             return View(pos);
         }
@@ -158,7 +158,7 @@ namespace Administracion.Areas.DashBoard.Controllers
 
                 cen.Modify(positionEN.Identifier, positionEN.Latitude, positionEN.Longitude, positionEN.Altitude);
 
-                TempData["resultado"] = "Localizacion modificada correctamente.";
+                TempData["resultado"] = Resources.textos.editOK;
                 TempData["ok"] = "success";
 
                 return RedirectToAction("Index");
@@ -190,12 +190,12 @@ namespace Administracion.Areas.DashBoard.Controllers
 
             if (pos == null)
             {
-                TempData["resultado"] = "Posición eliminada correctamente";
+                TempData["resultado"] = Resources.textos.deleteOK;
                 TempData["ok"] = "success";
             }
             else
             {
-                TempData["resultado"] = "Error al eliminar la posición, pruébelo más tarde";
+                TempData["resultado"] = Resources.textos.errorKO;
                 TempData["ok"] = "danger";
             }
 
@@ -254,7 +254,7 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
             catch (Exception ex)
             {
-                TempData["resultado"] = "No existen locations que mostrar.";
+                TempData["resultado"] = Resources.textos.modelEmpty;
                 TempData["ok"] = "warning";
             }
 

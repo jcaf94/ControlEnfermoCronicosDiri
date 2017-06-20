@@ -159,5 +159,11 @@ namespace Administracion.Areas.DashBoard.Controllers
             return Json(numPractitionerCentro);
 
         }
+
+        public ActionResult Idioma(string lang, string returnUrl)
+        {
+            Session["Cultura"] = new System.Globalization.CultureInfo(lang);
+            return Redirect(returnUrl);
+        }
     }
 }

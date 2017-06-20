@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Positions</h1>
+            <h1 class="page-header">@Administracion.Resources.textos.botonPos</h1>
 
             @if (ViewBag.error != null && ViewBag.error != "")
             {
@@ -23,7 +23,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Crear position</h4>
+            <h4>@Administracion.Resources.textos.tittleCreate</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
@@ -52,14 +52,14 @@
 
             <div class="form-group">
                 <div class="col-md-offset-1 col-md-10">
-                    <input type="submit" value="Crear" class="btn btn-primary" />
+                    <input type="submit" value="@Administracion.Resources.textos.buttonCreate" class="btn btn-primary" />
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-1 col-md-10">
                     <a href="@Url.Action("Index", "Positions")" class="btn btn-warning">
-                        <span> Volver al listado</span>
+                        <span> @Administracion.Resources.textos.buttonBack</span>
                     </a>
                 </div>
             </div>

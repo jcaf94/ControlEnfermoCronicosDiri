@@ -3,7 +3,6 @@ using Administracion.Controllers;
 using ChroniGenNHibernate.CAD.Chroni;
 using ChroniGenNHibernate.CEN.Chroni;
 using ChroniGenNHibernate.EN.Chroni;
-using ChroniGenNHibernate.Enumerated.Chroni;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +11,21 @@ using System.Web.Mvc;
 
 namespace Administracion.Areas.DashBoard.Controllers
 {
-    public class LocationsController : BasicController
+    public class EspecialidadController : BasicController
     {
-        // GET: DashBoard/Locations
+        // GET: DashBoard/Especialidad
         public ActionResult Index()
         {
-            IEnumerable<Location> listLoc = null;
+            IEnumerable<Especialidad> listLoc = null;
 
             try
             {
                 SessionInitialize();
-                LocationCAD cadPos = new LocationCAD();
-                LocationCEN cen = new LocationCEN(cadPos);
+                SpecialtyCAD cadSpecialty = new SpecialtyCAD();
+                SpecialtyCEN cen = new SpecialtyCEN(cadSpecialty);
 
-                IList<LocationEN> listLocEn = cen.ReadAll(0, -1);
-                listLoc = new AssemblerLocation().ConvertListENToModel(listLocEn).ToList();
+                IList<SpecialtyEN> listSpeEn = cen.ReadAll(0, -1);
+                listLoc = new AssemblerEspecialidad().ConvertListENToModel(listSpeEn).ToList();
                 SessionClose();
             }
             catch (Exception ex)
@@ -36,26 +35,26 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
 
 
-            ViewBag.menu = "Locations";
+            ViewBag.menu = "Specialities";
             return View(listLoc);
         }
 
-        // GET: DashBoard/Locations/Details/5
+        // GET: DashBoard/Especialidad/Details/5
         public ActionResult Details(int id = 0)
         {
             SessionInitialize();
 
             string resultado = "";
-            LocationCAD cadLoc = new LocationCAD();
-            LocationCEN cen = new LocationCEN(cadLoc);
-            LocationEN locEN = cen.ReadOID(id);
+            SpecialtyCAD cadLoc = new SpecialtyCAD();
+            SpecialtyCEN cen = new SpecialtyCEN(cadLoc);
+            SpecialtyEN locEN = cen.ReadOID(id);
 
             Dictionary<string, string> res = new Dictionary<string, string>();
 
             if (locEN != null)
             {
-                
-                resultado = "<ul><li><strong>Id: </strong>" + locEN.Identifier + "</li><li><strong>Nombre: </strong>" + locEN.Name + "</li><li><strong>Teléfono: </strong>" + locEN.Phone + "</li><li><strong>Email: </strong>" + locEN.Email + "</li> <li><strong>Código Postal: </strong>" + locEN.PostalCode + "</li> <li><strong>Dirección: </strong>" + locEN.Address + "</li> <li><strong>Organización: </strong>" + locEN.ManagingOrganization + "</li></ul>";
+
+                resultado = "<ul><li><strong>Id: </strong>" + locEN.Identifier + "</li><li><strong>Código: </strong>" + locEN.Code + "</li><li><strong>Nombre: </strong>" + locEN.Display + "</ul>";
                 res.Add("titulo", Resources.textos.detailsModal);
             }
             else
@@ -71,33 +70,32 @@ namespace Administracion.Areas.DashBoard.Controllers
             return Json(res);
         }
 
-        // GET: DashBoard/Locations/Create
+        // GET: DashBoard/Especialidad/Create
         public ActionResult Create()
         {
-            ViewBag.menu = "Locations";
+            ViewBag.menu = "Specialities";
             return View();
         }
 
-        // POST: DashBoard/Locations/Create
+        // POST: DashBoard/Especialidad/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            ViewBag.menu = "Locations";
+            ViewBag.menu = "Specialities";
 
             try
             {
                 SessionInitialize();
 
-                LocationCAD cadPos = new LocationCAD();
-                LocationCEN cen = new LocationCEN(cadPos);
+                SpecialtyCAD cadPos = new SpecialtyCAD();
+                SpecialtyCEN cen = new SpecialtyCEN(cadPos);
 
-                string name = collection["Name"].ToString();
-                string tel = collection["Phone"].ToString();
-                string email = collection["Email"].ToString();
-                string cod = collection["CodPostal"].ToString();
+                string name = collection["Nombre"].ToString();
 
+                Random r = new Random();
+                int aleatorio = r.Next(0, 100000);
 
-                cen.New_(LocationStatusEnum.active, name, "", LocationModeEnum.private_location, LocationTypeEnum.ambulance, "", LocationPhysicalTypeEnum.building, "ORM", tel, email,cod);
+                cen.New_(aleatorio.ToString(), name);
 
                 SessionClose();
 
@@ -113,22 +111,22 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
         }
 
-        // GET: DashBoard/Locations/Edit/5
+        // GET: DashBoard/Especialidad/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.menu = "Locations";
-            LocationEN locationEN = null;
-            Location loc = null;
+            ViewBag.menu = "Specialities";
+            SpecialtyEN locationEN = null;
+            Especialidad loc = null;
 
             try
             {
                 SessionInitialize();
 
-                LocationCAD cadPos = new LocationCAD();
-                LocationCEN cen = new LocationCEN(cadPos);
+                SpecialtyCAD cadPos = new SpecialtyCAD();
+                SpecialtyCEN cen = new SpecialtyCEN(cadPos);
 
                 locationEN = cen.ReadOID(id);
-                loc = new AssemblerLocation().ConvertENToModelUI(locationEN);
+                loc = new AssemblerEspecialidad().ConvertENToModelUI(locationEN);
                 SessionClose();
             }
             catch (Exception ex)
@@ -138,24 +136,21 @@ namespace Administracion.Areas.DashBoard.Controllers
             return View(loc);
         }
 
-        // POST: DashBoard/Locations/Edit/5
+        // POST: DashBoard/Especialidad/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            ViewBag.menu = "Locations";
-            LocationCAD cadPos = new LocationCAD();
-            LocationCEN cen = new LocationCEN(cadPos);
-            LocationEN positionEN = null;
+            ViewBag.menu = "Specialities";
+            SpecialtyCAD cadPos = new SpecialtyCAD();
+            SpecialtyCEN cen = new SpecialtyCEN(cadPos);
+            SpecialtyEN positionEN = null;
 
             try
             {
                 positionEN = cen.ReadOID(id);
-                positionEN.Name = collection["Name"].ToString();
-                positionEN.Email = collection["Email"].ToString();
-                positionEN.Phone = collection["Phone"].ToString();
-                positionEN.PostalCode = collection["CodPostal"].ToString();
+                positionEN.Display = collection["Nombre"].ToString();
 
-                cen.Modify(positionEN.Identifier, positionEN.Status, positionEN.Name, positionEN.Description, positionEN.Mode, positionEN.Type, positionEN.Address, positionEN.PhysicalType, positionEN.ManagingOrganization, positionEN.Phone, positionEN.Email, positionEN.PostalCode);
+                cen.Modify(positionEN.Identifier, positionEN.Code, positionEN.Display);
 
                 TempData["resultado"] = Resources.textos.editOK;
                 TempData["ok"] = "success";
@@ -171,19 +166,19 @@ namespace Administracion.Areas.DashBoard.Controllers
             }
         }
 
-        // GET: DashBoard/Locations/Delete/5
+        // GET: DashBoard/Especialidad/Delete/5
         public ActionResult Delete(int id)
         {
-            ViewBag.menu = "Locations";
+            ViewBag.menu = "Specialities";
 
             SessionInitialize();
 
-            LocationCAD cadPos = new LocationCAD();
-            LocationCEN cen = new LocationCEN(cadPos);
+            SpecialtyCAD cadPos = new SpecialtyCAD();
+            SpecialtyCEN cen = new SpecialtyCEN(cadPos);
 
             cen.Destroy(id);
 
-            LocationEN pos = cen.ReadOID(id);
+            SpecialtyEN pos = cen.ReadOID(id);
             SessionClose();
 
 
@@ -201,7 +196,7 @@ namespace Administracion.Areas.DashBoard.Controllers
             return RedirectToAction("Index");
         }
 
-        // POST: DashBoard/Locations/Delete/5
+        // POST: DashBoard/Especialidad/Delete/5
         //[HttpPost]
         //public ActionResult Delete(int id, FormCollection collection)
         //{

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="afirmacion" xml:space="preserve">
+    <value>Si</value>
+  </data>
   <data name="alt" xml:space="preserve">
     <value>Altitud </value>
   </data>
@@ -147,6 +150,9 @@
   <data name="botonPac" xml:space="preserve">
     <value>Pacientes</value>
   </data>
+  <data name="botonPat" xml:space="preserve">
+    <value>Pacientes</value>
+  </data>
   <data name="botonPlan" xml:space="preserve">
     <value>Plan de cuidado</value>
   </data>
@@ -156,14 +162,56 @@
   <data name="botonPrac" xml:space="preserve">
     <value>Médicos</value>
   </data>
+  <data name="botonSpec" xml:space="preserve">
+    <value>Especialidades</value>
+  </data>
+  <data name="buttonBack" xml:space="preserve">
+    <value>Volver al listado principal</value>
+  </data>
+  <data name="buttonCreate" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="buttonEdit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
   <data name="copyRight" xml:space="preserve">
     <value>Realizado por CroniCall</value>
+  </data>
+  <data name="createOK" xml:space="preserve">
+    <value>Elemento creado correctamente</value>
+  </data>
+  <data name="deleteOK" xml:space="preserve">
+    <value>Elemento borrado correctamente</value>
+  </data>
+  <data name="detailsModal" xml:space="preserve">
+    <value>Detalles</value>
   </data>
   <data name="detalles" xml:space="preserve">
     <value>Detalles</value>
   </data>
   <data name="editar" xml:space="preserve">
     <value>Editar</value>
+  </data>
+  <data name="editElemento" xml:space="preserve">
+    <value>Editar Elemento</value>
+  </data>
+  <data name="editOK" xml:space="preserve">
+    <value>Elemento editado correctamente</value>
+  </data>
+  <data name="errorDataModal" xml:space="preserve">
+    <value>Error obteniendo los detalles del elemento</value>
+  </data>
+  <data name="errorKO" xml:space="preserve">
+    <value>Ha ocurrido un error durante la operación.</value>
+  </data>
+  <data name="errorLoginAcceso" xml:space="preserve">
+    <value>Usuario o contraseña introducida incorrectas</value>
+  </data>
+  <data name="errorLoginGeneric" xml:space="preserve">
+    <value>Ha ocurrido un problema durante la operación inténtelo más tarde. Error producido: </value>
+  </data>
+  <data name="espList" xml:space="preserve">
+    <value>Listado de especialidades</value>
   </data>
   <data name="filtrado" xml:space="preserve">
     <value>  Filtra los datos por cualquier campo</value>
@@ -184,13 +232,25 @@
     <value>Latitud </value>
   </data>
   <data name="locList" xml:space="preserve">
-    <value>Listado de locations</value>
+    <value>Listado de localizaciones</value>
   </data>
   <data name="log" xml:space="preserve">
     <value>Longitud </value>
   </data>
   <data name="logOut" xml:space="preserve">
     <value>Desconectarse</value>
+  </data>
+  <data name="modalCerrar" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="modalConfirmation" xml:space="preserve">
+    <value>Se dispone a eliminar este elemento, ¿Está seguro?</value>
+  </data>
+  <data name="modalTitulo" xml:space="preserve">
+    <value>¡Atención!</value>
+  </data>
+  <data name="modelEmpty" xml:space="preserve">
+    <value>No existen elementos que mostrar</value>
   </data>
   <data name="placeHolderInicioPass" xml:space="preserve">
     <value>Contraseña ...</value>
@@ -201,7 +261,19 @@
   <data name="subtituloInicio" xml:space="preserve">
     <value>Accede al dashboard</value>
   </data>
+  <data name="tittleCreate" xml:space="preserve">
+    <value>Crear Elemento</value>
+  </data>
   <data name="tituloInicio" xml:space="preserve">
     <value>Acceso al login</value>
+  </data>
+  <data name="patList" xml:space="preserve">
+    <value>Listado de pacientes</value>
+  </data>
+  <data name="posList" xml:space="preserve">
+    <value>Listado de posiciones</value>
+  </data>
+  <data name="pracList" xml:space="preserve">
+    <value>Listado de médicos</value>
   </data>
 </root>

@@ -171,10 +171,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\DashBoard\Controllers\DashBoardController.cs" />
+    <Compile Include="Areas\DashBoard\Controllers\EspecialidadController.cs" />
     <Compile Include="Areas\DashBoard\Controllers\LocationsController.cs" />
+    <Compile Include="Areas\DashBoard\Controllers\PatientController.cs" />
     <Compile Include="Areas\DashBoard\Controllers\PositionsController.cs" />
     <Compile Include="Areas\DashBoard\Controllers\PractitionersController.cs" />
     <Compile Include="Areas\DashBoard\DashBoardAreaRegistration.cs" />
+    <Compile Include="Areas\DashBoard\Models\AssemblerPatient.cs" />
     <Compile Include="Areas\DashBoard\Models\AssemblerPractitioner.cs" />
     <Compile Include="Areas\DashBoard\Models\AssemblerLocation.cs" />
     <Compile Include="Areas\DashBoard\Models\AssemblerEspecialidad.cs" />
@@ -182,6 +185,7 @@
     <Compile Include="Areas\DashBoard\Models\Especialidad.cs" />
     <Compile Include="Areas\DashBoard\Models\Location.cs" />
     <Compile Include="Areas\DashBoard\Models\Position.cs" />
+    <Compile Include="Areas\DashBoard\Models\Patient.cs" />
     <Compile Include="Areas\DashBoard\Models\Practitioner.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -329,6 +333,13 @@
     <Content Include="Areas\DashBoard\Views\Practitioners\Index.cshtml" />
     <Content Include="Areas\DashBoard\Views\Practitioners\Create.cshtml" />
     <Content Include="Areas\DashBoard\Views\Practitioners\Edit.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Especialidad\Index.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Especialidad\Create.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Especialidad\Edit.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Patient\Index.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Patient\Create.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Patient\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -358,6 +369,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\DashBoard\Views\Principal\" />
+    <Folder Include="Content\images\" />
     <Folder Include="Views\Basic\" />
   </ItemGroup>
   <ItemGroup>
